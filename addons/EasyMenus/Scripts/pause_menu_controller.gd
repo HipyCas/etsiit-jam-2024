@@ -7,12 +7,18 @@ signal back_to_main_pressed
 @onready var resume_game_button: Button = $%ResumeGameButton
 	
 func open_pause_menu():
-	#Stops game and shows pause menu
+	# Pause in game time
+	GameTime.pause_time()
+	
+	# Stops game and shows pause menu
 	get_tree().paused = true
 	show()
 	resume_game_button.grab_focus()
 	
 func close_pause_menu():
+	# Unpause game time
+	GameTime.resume_time()
+	
 	get_tree().paused = false
 	hide()
 	emit_signal("resume")

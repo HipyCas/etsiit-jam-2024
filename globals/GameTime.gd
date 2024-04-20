@@ -20,3 +20,9 @@ func get_time():
 
 func get_day():
 	return floor(get_time() / (12 * 60 * 60))
+	
+func pause_time():
+	running = false
+	
+func resume_time():
+	running = true
