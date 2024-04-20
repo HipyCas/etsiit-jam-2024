@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddhhrqd6yw1tb"]
+
+[ext_resource type="Material" uid="uid://db4fs375bfxgn" path="res://Bucket/new_standard_material_3d.tres" id="1_mkv7h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huyxf"]
+albedo_color = Color(0.985441, 0.86804, 1.15514e-06, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.00784314, 1)
+emission_energy_multiplier = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_1o2mq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1e3sa"]
+albedo_color = Color(0.626782, 0.338941, 0.0554589, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qxs07"]
+
+[sub_resource type="Animation" id="Animation_am2n5"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Planet1/Mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0, 0.707, 0, 0.707, 0.5, 1, 0, 1, 0, 0, 0.75, 1, 0, 0.707, 0, -0.707, 1, 1, 0, 0, 0, -1)
+
+[sub_resource type="Animation" id="Animation_mfn0c"]
+resource_name = "spin_2"
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Planet2/Mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 1, 0, 0, 0.75, 1, 0, 0.707, 0, -0.707)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_loool"]
+_data = {
+"spin": SubResource("Animation_am2n5"),
+"spin_2": SubResource("Animation_mfn0c")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7xyrh"]
+radius = 0.503448
+
+[sub_resource type="BoxMesh" id="BoxMesh_05ehx"]
+lightmap_size_hint = Vector2i(14, 21)
+subdivide_width = 2
+subdivide_height = 2
+
+[node name="PlanetSelection" type="Node3D"]
+
+[node name="Sun" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -1.26351, 0, 0)
+material_override = SubResource("StandardMaterial3D_huyxf")
+mesh = SubResource("SphereMesh_1o2mq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sun"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00471193, 0.0111328, -0.00583496)
+light_energy = 8.0
+shadow_enabled = true
+shadow_bias = 4.806
+shadow_normal_bias = 10.0
+shadow_opacity = 0.7
+shadow_blur = 7.25
+omni_range = 40.2807
+
+[node name="Planet3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 20.9323, 0, 0)
+mesh = SubResource("SphereMesh_1o2mq")
+
+[node name="Planet4" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 29.725, 0, 0)
+mesh = SubResource("SphereMesh_1o2mq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16.4037, 10, -0.401)
+projection = 1
+size = 19.0
+
+[node name="Planet1" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.935832, 0.352446, 0, -0.352446, 0.935832, 8.565, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Planet1"]
+transform = Transform3D(-0.311338, 0, -0.39124, 0, 0.5, 0, 0.39124, 0, -0.311338, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_1e3sa")
+material_overlay = ExtResource("1_mkv7h")
+mesh = SubResource("SphereMesh_1o2mq")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_qxs07")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Planet1"]
+reset_on_save = false
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_loool")
+}
+speed_scale = 0.2
+metadata/autoplay = "spin"
+
+[node name="Planet2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.950228, 0.311556, 0, -0.311556, 0.950228, 14.4168, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Planet2"]
+transform = Transform3D(-0.751845, 0, -1.29797, 0, 1.5, 0, 1.29797, 0, -0.751845, 0, 0, 0)
+material_override = ExtResource("1_mkv7h")
+mesh = SubResource("SphereMesh_1o2mq")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet2"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_7xyrh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Planet2"]
+reset_on_save = false
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_loool")
+}
+speed_scale = 0.03
+metadata/autoplay = "spin_2"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 26.2035, 1.11675, 8.78008, 0)
+mesh = SubResource("BoxMesh_05ehx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 26.2035, 31.9701, 8.78008, 0)
+mesh = SubResource("BoxMesh_05ehx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -31.6614, 0, 1, 0, 1, 0, -1.38396e-06, 16.1444, 8.78008, -8.39105)
+mesh = SubResource("BoxMesh_05ehx")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -31.6614, 0, 1, 0, 1, 0, -1.38396e-06, 16.1444, 8.78008, 7.49951)
+mesh = SubResource("BoxMesh_05ehx")
