@@ -6,7 +6,8 @@ signal start_game_pressed
 @onready var content: Control = $%Content 
 
 func _ready():
-	start_game_button.grab_focus()
+	#start_game_button.grab_focus()
+	pass
 
 func quit():
 	get_tree().quit()
@@ -24,3 +25,7 @@ func close_options():
 
 func _on_start_game_button_pressed():
 	emit_signal("start_game_pressed")
+	
+	print("Game Started")
+	get_tree().change_scene_to_file("res://main_starship.tscn")
+	
