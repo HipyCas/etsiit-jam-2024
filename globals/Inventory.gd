@@ -1,8 +1,6 @@
-extends Node2D
+extends Node
 
-class_name StateMachine
-
-var init_inventory = { 
+const INITIAL_INVENTORY = { 
 	'electricity': 10
 	,'H': 0
 	,'Fe': 0
@@ -20,7 +18,7 @@ var init_inventory = {
 	,'Heater': 1
 }
 
-var inventory = init_inventory
+var inventory = INITIAL_INVENTORY.duplicate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
