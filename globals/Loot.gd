@@ -190,7 +190,7 @@ func get_conditions_object(planet: int):
 	return selected;
 
 func conditions_object_to_array(conds: Dictionary):
-	conds.values()
+	return conds.values()
 
 func loot_with_conds(planet: int, conds: Dictionary):
 	return get_loot_for_planet(planet, conditions_object_to_array(conds))
