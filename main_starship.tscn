@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=14 format=3 uid="uid://bxoxj0vxis68c"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
 [ext_resource type="Script" path="res://StaticBody3D.gd" id="2_xoilg"]
+[ext_resource type="Script" path="res://Timer.gd" id="3_x05pq"]
+[ext_resource type="PackedScene" uid="uid://n1hcin5iwb5h" path="res://Agua.glb" id="4_ug3yg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww7n5"]
 albedo_color = Color(0.36556, 0.370319, 0.383385, 1)
@@ -118,7 +120,15 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.728969, 0, 0.684547, 0, 1, 0, -0.684547, 0, 0.728969, 0, 0, 0)
 shape = SubResource("BoxShape3D_kig1v")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("3_x05pq")
+
+[node name="Agua" parent="." instance=ExtResource("4_ug3yg")]
+transform = Transform3D(0.00274017, 0, -0.499992, 0, 0.5, 0, 0.499992, 0, 0.00274017, -2.34454, 0.399613, -0.706293)
+
 [connection signal="input_event" from="StaticBody3D" to="StaticBody3D" method="_on_input_event"]
 [connection signal="mouse_entered" from="StaticBody3D" to="StaticBody3D" method="_on_mouse_entered"]
 [connection signal="input_event" from="StaticBody3D2" to="StaticBody3D2" method="_on_input_event"]
 [connection signal="mouse_entered" from="StaticBody3D2" to="StaticBody3D2" method="_on_mouse_entered"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
