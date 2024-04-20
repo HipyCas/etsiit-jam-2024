@@ -1,5 +1,7 @@
 extends Node
 
+const DIARY_OVERLAY_SCENE = preload("res://DiaryView.tscn")
+
 # 12h game time -> 10min real time
 const MULTIPLIER = 72;
 
@@ -14,6 +16,8 @@ func _process(delta):
 		emit_signal('day_gone')
 		days_elapsed += 1
 		running = false
+		
+		_show_diary_overlay()
 	
 func get_time():
 	return raw_time * 72
@@ -26,3 +30,9 @@ func pause_time():
 	
 func resume_time():
 	running = true
+
+func _show_diary_overlay():
+	var this_scene = DIARY_OVERLAY_SCENE.instantiate()
+	this_scene.get_node("RichTextLabel").add_text("Hi")
+	
+	get_tree().root.add_child(this_scene)
