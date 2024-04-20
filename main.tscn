@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxoxj0vxis68c"]
+
+[sub_resource type="Environment" id="Environment_caffm"]
+ambient_light_source = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww7n5"]
+albedo_color = Color(0.36556, 0.370319, 0.383385, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7kw8u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_up5ut"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4810h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u6p4"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+environment = SubResource("Environment_caffm")
+size = 5.0
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ww7n5")
+mesh = SubResource("PlaneMesh_7kw8u")
+skeleton = NodePath("../..")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(6, 0, 0, 0, -1, 9.05975e-07, 0, -1.50996e-07, -6, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_ww7n5")
+mesh = SubResource("BoxMesh_up5ut")
+skeleton = NodePath("../..")
+
+[node name="WallZNeg" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 2, -3)
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="WallZPos" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3, 0, 0, 0, -4.37114e-08, 2, 0, -1, -8.74228e-08, 0, 2, 3)
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="WallXPos" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-1.31134e-07, -1, -8.74228e-08, 0, -4.37114e-08, 2, -3, 4.37114e-08, 3.82137e-15, 3, 2, 0)
+material_override = SubResource("StandardMaterial3D_1u6p4")
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="WallXNeg" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-1.31134e-07, 1, 8.74228e-08, 0, -4.37114e-08, 2, 3, 4.37114e-08, 3.82137e-15, -3, 2, 0)
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 3.38742, 0)
