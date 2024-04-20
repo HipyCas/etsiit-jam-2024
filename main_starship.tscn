@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxoxj0vxis68c"]
+
+[ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww7n5"]
+albedo_color = Color(0.36556, 0.370319, 0.383385, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7kw8u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_up5ut"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4810h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u6p4"]
+emission_energy_multiplier = 0.0
+
+[sub_resource type="Environment" id="Environment_jx23b"]
+background_mode = 1
+ambient_light_source = 1
+ambient_light_color = Color(0.887477, 0.0647467, 0.372617, 1)
+reflected_light_source = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_snloj"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.75, 0)
+size = 5.0
+script = ExtResource("1_q0863")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ww7n5")
+mesh = SubResource("PlaneMesh_7kw8u")
+skeleton = NodePath("../..")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(6, 0, 0, 0, -1, 9.05975e-07, 0, -1.50996e-07, -6, 0, 4, 0)
+material_override = SubResource("StandardMaterial3D_ww7n5")
+mesh = SubResource("BoxMesh_up5ut")
+skeleton = NodePath("../..")
+
+[node name="WallZNeg" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 2, -3)
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="WallZPos" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3, 0, 0, 0, -4.37114e-08, 2, 0, -1, -8.74228e-08, 0, 2, 3)
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="WallXPos" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-1.31134e-07, -1, -8.74228e-08, 0, -4.37114e-08, 2, -3, 4.37114e-08, 3.82137e-15, 3, 2, 0)
+material_override = SubResource("StandardMaterial3D_1u6p4")
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="WallXNeg" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-1.31134e-07, 1, 8.74228e-08, 0, -4.37114e-08, 2, 3, 4.37114e-08, 3.82137e-15, -3, 2, 0)
+mesh = SubResource("PlaneMesh_4810h")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 3, 0)
+distance_fade_begin = 2.0
+omni_range = 13.4971
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jx23b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.614599, 0, 0, 0, 0.592307, 0, 0.587148, -1.93296)
+mesh = SubResource("BoxMesh_snloj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.72873, 0, 0.405613, 0, 0.614599, 0, -0.684802, 0, 0.431632, 2.44555, 0.587148, -0.752278)
+mesh = SubResource("BoxMesh_snloj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.013989, 0.413057, 0.438514, 0.994958, 0.0509449, -0.0334341, -0.0993054, 0.452239, -0.396755, 2.44555, 0.587148, 0.134942)
+mesh = SubResource("BoxMesh_snloj")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0485388, -0.0556164, 0.589175, 0.998494, -0.0183728, 0.0272484, 0.0255729, 0.611802, 0.0543781, -0.0385015, 0.587148, 2.43239)
+mesh = SubResource("BoxMesh_snloj")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0485388, -0.0556164, 0.589175, 0.998494, -0.0183728, 0.0272484, 0.0255729, 0.611802, 0.0543781, -0.761915, 0.568018, 2.38897)
+mesh = SubResource("BoxMesh_snloj")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0485388, -0.0556164, 0.589175, 0.998494, -0.0183728, 0.0272484, 0.0255729, 0.611802, 0.0543781, 0.724141, 0.596713, 2.47584)
+mesh = SubResource("BoxMesh_snloj")
