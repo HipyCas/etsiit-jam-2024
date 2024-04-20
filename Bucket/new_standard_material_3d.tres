@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://db4fs375bfxgn"]
+
+[ext_resource type="Texture2D" uid="uid://dhi3vy6gluxff" path="res://Bucket/T_standardSurface1_BC.tga" id="1_jui5h"]
+[ext_resource type="Texture2D" uid="uid://br3digfurdrl4" path="res://Bucket/T_standardSurface1_N.tga" id="2_sal7y"]
+
+[resource]
+albedo_texture = ExtResource("1_jui5h")
+normal_enabled = true
+normal_texture = ExtResource("2_sal7y")
