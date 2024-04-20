@@ -22,6 +22,8 @@ buses/default_bus_layout="res://addons/EasyMenus/default_bus_layout.tres"
 
 [autoload]
 
+Loot="*res://scripts/Loot.gd"
+GameTime="*res://scripts/GameTime.gd"
 MenuTemplateManager="*res://addons/EasyMenus/Nodes/menu_template_manager.tscn"
 
 [display]
