@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bxoxj0vxis68c"]
 
-[ext_resource type="Script" path="res://Camera3D.gd" id="1_r3w0c"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
 [ext_resource type="Script" path="res://StaticBody3D.gd" id="2_xoilg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww7n5"]
