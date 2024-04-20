@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=12 format=3 uid="uid://b08okpvtnmth3"]
 
-[ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="1_r3w0c"]
 [ext_resource type="Script" path="res://StaticBody3D.gd" id="2_xoilg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww7n5"]
@@ -32,7 +32,7 @@ reflected_light_source = 1
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.75, 0)
 size = 5.0
-script = ExtResource("1_q0863")
+script = ExtResource("1_r3w0c")
 
 [node name="Node3D" type="Node3D" parent="."]
 
