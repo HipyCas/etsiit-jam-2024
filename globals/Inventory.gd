@@ -30,22 +30,22 @@ func add_inventory(material, quantity):
 var crafter_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"Motor Nv 1": {'cost':{'electricity':10,'Fe':2}, 'unlocked': true}, #dependecies: {"Motor Nv 1"}}
-	"Motor Nv 2": {'cost':{'electricity':10,'Fe':6, 'Si':2, 'Cu':2}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':1 }},
-	"Motor FTL": {'cost':{'electricity':10,'Fe':2, 'W':2, 'Pd':2}, 'unlocked': false, 'dependencies': {}},
-	"Batería Nv 2": {'cost':{'electricity':10,'Li':6}, 'unlocked': true, 'dependencies': {}},
-	"Batería Nv 3": {'cost':{'electricity':10,'Li':6, 'Cu':2}, 'unlocked': false, 'dependencies': {}},
-	"Batería Nv 4": {'cost':{'electricity':10,'Li':6, 'Cu':2}, 'unlocked': false, 'dependencies': {}},
-	"Caldera Nv 2": {'cost':{'electricity':10,'Fe':6}, 'unlocked': true, 'dependencies': {}},
-	"Caldera Nv 3": {'cost':{'electricity':10,'Cu':6, 'Fe':2}, 'unlocked': false},
-	"Caldera Nv 4": {'cost':{'electricity':10,'Cu':6, 'W':2}, 'unlocked': false},
+	"Motor Nv 1": {'cost':{'electricity':10,'Fe':2}, 'unlocked': true},
+	"Motor Nv 2": {'cost':{'electricity':10,'Fe':6, 'Si':2, 'Cu':2}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
+	"Motor FTL": {'cost':{'electricity':10,'Fe':2, 'W':2, 'Pd':2}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
+	"Batería Nv 2": {'cost':{'electricity':10,'Li':6}, 'unlocked': true},
+	"Batería Nv 3": {'cost':{'electricity':10,'Li':6, 'Cu':2}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
+	"Batería Nv 4": {'cost':{'electricity':10,'Li':6, 'Cu':2}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
+	"Caldera Nv 2": {'cost':{'electricity':10,'Fe':6}, 'unlocked': true},
+	"Caldera Nv 3": {'cost':{'electricity':10,'Cu':6, 'Fe':2}, 'unlocked': false, 'dependencies': {'Heater':2, 'Crafter':2 }},
+	"Caldera Nv 4": {'cost':{'electricity':10,'Cu':6, 'W':2}, 'unlocked': false, 'dependencies': {'Heater':3, 'Crafter':3 }},
 	"Crafter Nv 2": {'cost':{'electricity':10,'Fe':6, 'Si':2}, 'unlocked': true},
-	"Crafter Nv 3": {'cost':{'electricity':10,'Fe':6, 'W':2}, 'unlocked': false},
-	"Respirador Nv 2": {'cost':{'electricity':10,'C':6, 'Cu':2}, 'unlocked': false},
-	"Respirador Nv 3": {'cost':{'electricity':10,'C':6, 'Li':2}, 'unlocked': false},
-	"Panel solar Nv 1": {'cost':{'electricity':10, 'Si':2}, 'unlocked': false},
-	"Panel solar Nv 2": {'cost':{'electricity':10, 'Si':2, 'Cu':2}, 'unlocked': false},
-	"Panel solar Nv 3": {'cost':{'electricity':10, 'Si':2, 'W':2}, 'unlocked': false}
+	"Crafter Nv 3": {'cost':{'electricity':10,'Fe':6, 'W':2}, 'unlocked': false, 'dependencies': {'Crafter':3 }},
+	"Respirador Nv 2": {'cost':{'electricity':10,'C':6, 'Cu':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	"Respirador Nv 3": {'cost':{'electricity':10,'C':6, 'Li':2}, 'unlocked': false, 'dependencies': {'Respirador':2, 'Crafter':3 }},
+	"Panel solar Nv 1": {'cost':{'electricity':10, 'Si':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	"Panel solar Nv 2": {'cost':{'electricity':10, 'Si':2, 'Cu':2}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
+	"Panel solar Nv 3": {'cost':{'electricity':10, 'Si':2, 'W':2}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
 }
 
 func is_crafteable():
