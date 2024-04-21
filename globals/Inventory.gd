@@ -23,22 +23,22 @@ var inventory = INITIAL_INVENTORY.duplicate()
 var crafter_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"Motor Nv 1": {'cost':{'electricity':10,'iron':2}, 'unlocked': true},
-	"Motor Nv 2": {'cost':{'electricity':10,'iron':6, 'silicon':2, 'copper':2}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
-	"Motor FTL": {'cost':{'electricity':10,'iron':2, 'tungsten':2, 'paladium':2}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
-	"Batería Nv 2": {'cost':{'electricity':10,'lithium':6}, 'unlocked': true},
-	"Batería Nv 3": {'cost':{'electricity':10,'lithium':6, 'copper':2}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
-	"Batería Nv 4": {'cost':{'electricity':10,'lithium':6, 'copper':2}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
-	"Caldera Nv 2": {'cost':{'electricity':10,'iron':6}, 'unlocked': true},
-	"Caldera Nv 3": {'cost':{'electricity':10,'copper':6, 'iron':2}, 'unlocked': false, 'dependencies': {'Heater':2, 'Crafter':2 }},
-	"Caldera Nv 4": {'cost':{'electricity':10,'copper':6, 'tungsten':2}, 'unlocked': false, 'dependencies': {'Heater':3, 'Crafter':3 }},
-	"Crafter Nv 2": {'cost':{'electricity':10,'iron':6, 'silicon':2}, 'unlocked': true},
-	"Crafter Nv 3": {'cost':{'electricity':10,'iron':6, 'tungsten':2}, 'unlocked': false, 'dependencies': {'Crafter':3 }},
-	"Respirador Nv 2": {'cost':{'electricity':10,'carbon':6, 'copper':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
-	"Respirador Nv 3": {'cost':{'electricity':10,'carbon':6, 'lithium':2}, 'unlocked': false, 'dependencies': {'Respirador':2, 'Crafter':3 }},
-	"Panel solar Nv 1": {'cost':{'electricity':10, 'silicon':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
-	"Panel solar Nv 2": {'cost':{'electricity':10, 'silicon':2, 'copper':2}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
-	"Panel solar Nv 3": {'cost':{'electricity':10, 'silicon':2, 'tungsten':2}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
+	"Motor Nv 1": {'cost':{'electricity':10,'Fe':60}, 'unlocked': true},
+	"Motor Nv 2": {'cost':{'electricity':30,'Fe':150, 'Si':50}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
+	"Motor FTL": {'cost':{'electricity':50,'Fe':250, 'W':50, 'Pd':40}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
+	"Batería Nv 2": {'cost':{'electricity':10,'Li':50}, 'unlocked': true},
+	"Batería Nv 3": {'cost':{'electricity':30,'Li':70, 'Cu':200}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
+	"Batería Nv 4": {'cost':{'electricity':60,'Li':6, 'W':20}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
+	"Caldera Nv 2": {'cost':{'electricity':10,'Fe':20}, 'unlocked': true},
+	"Caldera Nv 3": {'cost':{'electricity':40,'Cu':150, 'Fe':40}, 'unlocked': false, 'dependencies': {'Heater':2, 'Crafter':2 }},
+	"Caldera Nv 4": {'cost':{'electricity':60,'Cu':300, 'Si':100}, 'unlocked': false, 'dependencies': {'Heater':3, 'Crafter':3 }},
+	"Crafter Nv 2": {'cost':{'electricity':20,'Fe':60, 'Si':30}, 'unlocked': true},
+	"Crafter Nv 3": {'cost':{'electricity':50,'Fe':70, 'W':30}, 'unlocked': false, 'dependencies': {'Crafter':3 }},
+	"Respirador Nv 2": {'cost':{'electricity':35,'C':20, 'Cu':150}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	"Respirador Nv 3": {'cost':{'electricity':70,'C':40, 'Li':80}, 'unlocked': false, 'dependencies': {'Respirador':2, 'Crafter':3 }},
+	"Panel solar Nv 1": {'cost':{'electricity':10, 'Si':25}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	"Panel solar Nv 2": {'cost':{'electricity':20, 'Si':50, 'Cu':150}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
+	"Panel solar Nv 3": {'cost':{'electricity':80, 'Si':75, 'W':40}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
 }
 
 
