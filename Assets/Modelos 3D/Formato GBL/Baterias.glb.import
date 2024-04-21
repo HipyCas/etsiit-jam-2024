@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b32ojwpk5xbb7"
-path="res://.godot/imported/Baterias.glb-ac754d6adfbc570f0c918fd5b314571c.scn"
+path="res://.godot/imported/Baterias.glb-be7e8b59f07b1f2bddab0d00c296751a.scn"
 
 [deps]
 
-source_file="res://assets/Modelos 3D/Formato GBL/Baterias.glb"
-dest_files=["res://.godot/imported/Baterias.glb-ac754d6adfbc570f0c918fd5b314571c.scn"]
+source_file="res://Assets/Modelos 3D/Formato GBL/Baterias.glb"
+dest_files=["res://.godot/imported/Baterias.glb-be7e8b59f07b1f2bddab0d00c296751a.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://0h7ixa868ng8"
-path="res://.godot/imported/Temperatura.glb-b321c4a5b3e30163ffd6807ec4515b03.scn"
+uid="uid://d3fjjkvp6f3xf"
+path="res://.godot/imported/Bateria.gltf-a04f4896f5201e9de498e908aa23f4f3.scn"
 
 [deps]
 
-source_file="res://Assets/Modelos 3D/Formato GBL/Temperatura.glb"
-dest_files=["res://.godot/imported/Temperatura.glb-b321c4a5b3e30163ffd6807ec4515b03.scn"]
+source_file="res://Assets/Modelos 3D/baterias/Bateria.gltf"
+dest_files=["res://.godot/imported/Bateria.gltf-a04f4896f5201e9de498e908aa23f4f3.scn"]
 
 [params]
 
