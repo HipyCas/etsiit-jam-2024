@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr6u01metx555"]
+
+[ext_resource type="PackedScene" uid="uid://dq2nfjalplnnp" path="res://assets/Caldera/CALDERA.fbx" id="1_5lqw3"]
+[ext_resource type="Material" uid="uid://capl822xmp7md" path="res://assets/Caldera/new_standard_material_3d.tres" id="2_isx7s"]
+
+[node name="Root Scene" instance=ExtResource("1_5lqw3")]
+
+[node name="Box001" parent="RootNode/group" index="0"]
+material_override = ExtResource("2_isx7s")
+
+[node name="Sphere001" parent="RootNode/group" index="1"]
+material_override = ExtResource("2_isx7s")
+
+[node name="Rectangle001" parent="RootNode/group" index="2"]
+material_override = ExtResource("2_isx7s")
+
+[node name="Rectangle002" parent="RootNode/group" index="3"]
+material_override = ExtResource("2_isx7s")
+
+[node name="Cylinder001" parent="RootNode/group" index="4"]
+material_override = ExtResource("2_isx7s")
+
+[node name="Object001" parent="RootNode/group" index="5"]
+material_override = ExtResource("2_isx7s")
+
+[node name="Object002" parent="RootNode/group" index="6"]
+material_override = ExtResource("2_isx7s")
+
+[node name="Object003" parent="RootNode/group" index="7"]
+material_override = ExtResource("2_isx7s")
