@@ -31,7 +31,7 @@ var crafter_items = {
 	"Panel solar Nv 3": {'cost':{'electricity':80,'Si':75,'W':40}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
 }
 
-func is_crafteable():
+func is_crafteable(item):
 	#Determina si un elemento se puede craftear o no
 	var crafteable = false
 	var crafteable_list = []
@@ -50,7 +50,7 @@ func is_crafteable():
 					# If any required material is insufficient, set unlocked flag to false
 					crafteable = false
 	print('Objetos Crafteables:', crafteable_list)
-	return crafteable
+	return item in crafteable_list
 
 
 func unlock():
@@ -106,5 +106,3 @@ func craft_item(item_name):
 					Inventory.add_inventory(material, -cost[material])
 				else:
 					print("Material", material, "not found in inventory.")
-
-
