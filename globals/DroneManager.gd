@@ -10,11 +10,11 @@ func _ready():
 	gen_daily_missions()
 
 func _process(delta):
-	if (mission_ongoing() and (
+	if (mission_ongoing() and
 		(
-			(Time.get_ticks_msec() / 1000) - _ongoing_started_on)
-			>= _ongoing_mission.mission_length_real_seconds)
-		):
+			(Time.get_ticks_msec() - _ongoing_started_on)
+			>= _ongoing_mission.mission_length_real_seconds
+		)):
 		complete_mission()
 
 func gen_daily_missions():
@@ -28,9 +28,11 @@ func cancel_mission():
 	_ongoing_mission = null
 
 func complete_mission():
+	print('complete mission')
 	if not mission_ongoing(): return
 	
 	var loot = Loot.loot_with_conds(Planet.get_current_planet(), _ongoing_mission.conds)
+	print('complete with ', loot)
 	for el in loot.keys():
 		Inventory.add_inventory(el, loot[el])
 	
@@ -43,14 +45,14 @@ func lauch_mission(mission_idx: int):
 	if _ongoing_mission != null:
 		return false
 	_ongoing_mission = daily_missions[mission_idx]
-	_ongoing_started_on = Time.get_ticks_msec() / 1000
+	_ongoing_started_on = Time.get_ticks_msec()
 	return true
 
 func gen_mission(planet: int):
 	var conds = Loot.get_conditions_object(planet)
 	
 	var mission_length_ingame_hours = Loot.random.randi_range(2, 6)
-	var mission_length_real_seconds = (mission_length_ingame_hours * 60 * 60) / GameTime.MULTIPLIER
+	var mission_length_real_seconds = (mission_length_ingame_hours * 60 * 60 * 1000) / GameTime.MULTIPLIER
 	
 	return {
 		'conds': conds,

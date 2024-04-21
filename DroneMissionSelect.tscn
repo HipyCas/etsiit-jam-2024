@@ -11,6 +11,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yorqn")
 
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.356863)
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -67,12 +76,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "DRONE EN MISIÓN"
+text = "DRON EN MISIÓN"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 0.447059)
