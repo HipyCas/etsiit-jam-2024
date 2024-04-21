@@ -70,3 +70,7 @@ func show_planet_info(_planet: int):
 	
 	$PlanetInfoPanel.visible = true
 	$PlanetInfoPanel.grab_focus()
+
+
+func _on_outer_space_input_event(camera, event, position, normal, shape_idx):
+	_handle_planet_event(4, event)
