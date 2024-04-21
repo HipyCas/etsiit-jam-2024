@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bs77nro64ifww"
-path="res://.godot/imported/Baterias.glb-dc69164f51539ad46c55ba03b2b84e7a.scn"
+uid="uid://df0mwg8bf8goj"
+path="res://.godot/imported/agua.fbx-a789b35f14764b81729a403559903d16.scn"
 
 [deps]
 
-source_file="res://assets/3D/Baterias.glb"
-dest_files=["res://.godot/imported/Baterias.glb-dc69164f51539ad46c55ba03b2b84e7a.scn"]
+source_file="res://assets/agua2/agua.fbx"
+dest_files=["res://.godot/imported/agua.fbx-a789b35f14764b81729a403559903d16.scn"]
 
 [params]
 
@@ -29,13 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"standardSurface1": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/3D/standardSurface1.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://h7t7x6ka6ka3"]
+
+[ext_resource type="PackedScene" uid="uid://dclegjguj0bp1" path="res://assets/Libreta/Libreta.fbx" id="1_vm483"]
+[ext_resource type="Material" uid="uid://esl78y8oh53e" path="res://assets/Libreta/new_standard_material_3d.tres" id="2_vygy2"]
+
+[node name="Root Scene" instance=ExtResource("1_vm483")]
+
+[node name="Plane001" parent="RootNode/group" index="0"]
+material_override = ExtResource("2_vygy2")
+
+[node name="Plane002" parent="RootNode/group" index="1"]
+material_override = ExtResource("2_vygy2")
+
+[node name="Plane003" parent="RootNode/group" index="2"]
+material_override = ExtResource("2_vygy2")
+
+[node name="Plane004" parent="RootNode/group" index="3"]
+material_override = ExtResource("2_vygy2")
+
+[node name="Plane005" parent="RootNode/group" index="4"]
+material_override = ExtResource("2_vygy2")
+
+[node name="Plane006" parent="RootNode/group" index="5"]
+material_override = ExtResource("2_vygy2")
+
+[node name="Plane007" parent="RootNode/group" index="6"]
+material_override = ExtResource("2_vygy2")
