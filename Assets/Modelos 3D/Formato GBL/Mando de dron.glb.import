@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hqqkangrsndb"
-path="res://.godot/imported/Mando de dron.glb-cf3a353304b153b1b8b04297a8f8d88b.scn"
+path="res://.godot/imported/Mando de dron.glb-fe909f9c798e75bb9ad95e7d8727c05b.scn"
 
 [deps]
 
-source_file="res://Assets/Modelos 3D/Formato GBL/Mando de dron.glb"
-dest_files=["res://.godot/imported/Mando de dron.glb-cf3a353304b153b1b8b04297a8f8d88b.scn"]
+source_file="res://assets/Modelos 3D/Formato GBL/Mando de dron.glb"
+dest_files=["res://.godot/imported/Mando de dron.glb-fe909f9c798e75bb9ad95e7d8727c05b.scn"]
 
 [params]
 

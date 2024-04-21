@@ -107,6 +107,5 @@ func craft_item(item_name):
 					Inventory.add_inventory(material, cost[material])
 					#Inventory.add_inventory(material,)
 					crafter_items[item_name].unlocked = true
-
 				else:
 					print("Material", material, "not found in inventory.")
