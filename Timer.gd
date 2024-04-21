@@ -7,5 +7,5 @@ func _ready():
 
 
 func _on_timeout():
-	print('time elapsed', GameTime.get_time(), Loot.loot_with_conds(0, Loot.get_conditions_object(0)))
+	#print('time elapsed', GameTime.get_time(), Loot.loot_with_conds(0, Loot.get_conditions_object(0)))
 	pass # Replace with function body.
