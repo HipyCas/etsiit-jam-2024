@@ -20,15 +20,6 @@ const INITIAL_INVENTORY = {
 
 var inventory = INITIAL_INVENTORY.duplicate()
 
-var heater_items = {
-	#Costes de crafteos
-	#Nombre del item, costes
-	"hydrogen": {'cost':{'hydrogen':10},'production':{'electricity':10}},
-	"lithium": {'cost':{'lithium':10,'iron':6}, 'production':{'electricity':10}},
-	"carbon": {'cost':{'carbon':10,'iron':2}, 'production':{'electricity':10}}
-}
-
-
 var crafter_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
@@ -58,7 +49,6 @@ func _ready():
 	
 func add_inventory(material, quantity):
 	inventory[material] += quantity
-
 
 func is_crafteable():
 	#Determina si un elemento se puede craftear o no

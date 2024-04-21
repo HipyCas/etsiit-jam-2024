@@ -1,49 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqw1olufrmm0c"]
+[gd_scene load_steps=3 format=3 uid="uid://dqw1olufrmm0c"]
 
 [ext_resource type="Texture2D" uid="uid://betg5k83f2nmi" path="res://assets/2D/caldera.png" id="1_4qqkn"]
 [ext_resource type="Script" path="res://caldera_provisional.gd" id="1_uq7sg"]
-[ext_resource type="Texture2D" uid="uid://b4qb0gvu83neo" path="res://assets/2D/electricity.png" id="3_33g36"]
 
 [node name="Caldera" type="Node2D"]
 script = ExtResource("1_uq7sg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(440, 307)
+position = Vector2(378, 307)
 scale = Vector2(2, 2)
 texture = ExtResource("1_4qqkn")
 
 [node name="HeaterElementButton" type="Button" parent="."]
-offset_left = 312.0
+offset_left = 248.0
 offset_top = 144.0
-offset_right = 376.0
+offset_right = 312.0
 offset_bottom = 208.0
 text = "H"
 
 [node name="electricity_actual_y_maximo" type="Label" parent="."]
-offset_left = 467.0
-offset_top = 168.0
-offset_right = 528.0
-offset_bottom = 192.0
-text = "5/100"
+offset_left = 413.0
+offset_top = 284.0
+offset_right = 453.0
+offset_bottom = 307.0
 
 [node name="element_cantidad_y_coste" type="Label" parent="."]
-offset_left = 320.0
-offset_top = 256.0
-offset_right = 576.0
-offset_bottom = 320.0
-text = "5/10 => 10
-"
+offset_left = 239.0
+offset_top = 369.0
+offset_right = 279.0
+offset_bottom = 392.0
 
 [node name="HeaterFireButton" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 369.0
-offset_right = 576.0
-offset_bottom = 433.0
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(547.75, 179.875)
-scale = Vector2(0.0848348, 0.106)
-texture = ExtResource("3_33g36")
+offset_left = 448.0
+offset_top = 368.0
+offset_right = 512.0
+offset_bottom = 440.0
 
 [connection signal="pressed" from="HeaterElementButton" to="." method="_on_element_button_pressed"]
 [connection signal="pressed" from="HeaterFireButton" to="." method="_on_heater_fire_button_pressed"]
