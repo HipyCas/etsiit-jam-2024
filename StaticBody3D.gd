@@ -16,6 +16,6 @@ func _on_mouse_entered():
 	pass # Replace with function body.
 
 
-func _on_input_event(camera, event, position, normal, shape_idx):
+func _on_input_event(camera, event, _input_position, _normal, _shape_idx):
 	print('box event', self.name, event.as_text())
 	pass # Replace with function body.
