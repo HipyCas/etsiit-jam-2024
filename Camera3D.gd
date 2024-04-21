@@ -4,14 +4,9 @@ extends Camera3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
-func _input(event):
-	if event is InputEventKey and event.pressed:
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and GameTime.running:
 		if event.keycode == KEY_LEFT:
 			rotate(Vector3.UP, PI * 0.5)
 		elif event.keycode == KEY_RIGHT:

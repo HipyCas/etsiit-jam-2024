@@ -26,6 +26,8 @@ MenuTemplateManager="*res://addons/EasyMenus/Nodes/menu_template_manager.tscn"
 Loot="*res://globals/Loot.gd"
 GameTime="*res://globals/GameTime.gd"
 Inventory="*res://globals/Inventory.gd"
+Planet="*res://globals/Planet.gd"
+DroneManager="*res://globals/DroneManager.gd"
 
 [display]
 
