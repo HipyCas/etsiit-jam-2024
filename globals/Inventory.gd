@@ -1,21 +1,21 @@
 extends Node
 
 const INITIAL_INVENTORY = { 
-	'electricity': 10
-	,'H': 0
-	,'Fe': 0
-	,'C': 0
-	,'Si': 0
-	,'Cu': 0
-	,'Li': 0
-	,'W': 0
-	,'Pd': 0
-	,'Motor': 0
-	,'Respirador': 1
-	,'Battery': 1
-	,'SolarPannel': 0
-	,'Crafter': 1
-	,'Heater': 1
+	'electricity': 10,
+	'hydrogen': 		0,
+	'iron': 				0,
+	'carbon': 			0,
+	'silicon': 			0,
+	'lithium': 			0,
+	'copper': 			0,
+	'tungsten': 		0,
+	'paladium': 		0,
+	'Motor': 				0,
+	'Respirador': 	1,
+	'Battery': 			1,
+	'SolarPannel': 	0,
+	'Crafter': 			1,
+	'Heater': 			1
 }
 
 var inventory = INITIAL_INVENTORY.duplicate()
@@ -23,31 +23,31 @@ var inventory = INITIAL_INVENTORY.duplicate()
 var heater_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"H": {'cost':{'H':10},'production':{'electricity':10}},
-	"Li": {'cost':{'Li':10,'Fe':6}, 'production':{'electricity':10}},
-	"C": {'cost':{'C':10,'Fe':2}, 'production':{'electricity':10}}
+	"hydrogen": {'cost':{'hydrogen':10},'production':{'electricity':10}},
+	"lithium": {'cost':{'lithium':10,'iron':6}, 'production':{'electricity':10}},
+	"carbon": {'cost':{'carbon':10,'iron':2}, 'production':{'electricity':10}}
 }
 
 
 var crafter_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"Motor Nv 1": {'cost':{'electricity':10,'Fe':2}, 'unlocked': true},
-	"Motor Nv 2": {'cost':{'electricity':10,'Fe':6, 'Si':2, 'Cu':2}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
-	"Motor FTL": {'cost':{'electricity':10,'Fe':2, 'W':2, 'Pd':2}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
-	"Batería Nv 2": {'cost':{'electricity':10,'Li':6}, 'unlocked': true},
-	"Batería Nv 3": {'cost':{'electricity':10,'Li':6, 'Cu':2}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
-	"Batería Nv 4": {'cost':{'electricity':10,'Li':6, 'Cu':2}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
-	"Caldera Nv 2": {'cost':{'electricity':10,'Fe':6}, 'unlocked': true},
-	"Caldera Nv 3": {'cost':{'electricity':10,'Cu':6, 'Fe':2}, 'unlocked': false, 'dependencies': {'Heater':2, 'Crafter':2 }},
-	"Caldera Nv 4": {'cost':{'electricity':10,'Cu':6, 'W':2}, 'unlocked': false, 'dependencies': {'Heater':3, 'Crafter':3 }},
-	"Crafter Nv 2": {'cost':{'electricity':10,'Fe':6, 'Si':2}, 'unlocked': true},
-	"Crafter Nv 3": {'cost':{'electricity':10,'Fe':6, 'W':2}, 'unlocked': false, 'dependencies': {'Crafter':3 }},
-	"Respirador Nv 2": {'cost':{'electricity':10,'C':6, 'Cu':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
-	"Respirador Nv 3": {'cost':{'electricity':10,'C':6, 'Li':2}, 'unlocked': false, 'dependencies': {'Respirador':2, 'Crafter':3 }},
-	"Panel solar Nv 1": {'cost':{'electricity':10, 'Si':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
-	"Panel solar Nv 2": {'cost':{'electricity':10, 'Si':2, 'Cu':2}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
-	"Panel solar Nv 3": {'cost':{'electricity':10, 'Si':2, 'W':2}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
+	"Motor Nv 1": {'cost':{'electricity':10,'iron':2}, 'unlocked': true},
+	"Motor Nv 2": {'cost':{'electricity':10,'iron':6, 'silicon':2, 'copper':2}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
+	"Motor FTL": {'cost':{'electricity':10,'iron':2, 'tungsten':2, 'paladium':2}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
+	"Batería Nv 2": {'cost':{'electricity':10,'lithium':6}, 'unlocked': true},
+	"Batería Nv 3": {'cost':{'electricity':10,'lithium':6, 'copper':2}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
+	"Batería Nv 4": {'cost':{'electricity':10,'lithium':6, 'copper':2}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
+	"Caldera Nv 2": {'cost':{'electricity':10,'iron':6}, 'unlocked': true},
+	"Caldera Nv 3": {'cost':{'electricity':10,'copper':6, 'iron':2}, 'unlocked': false, 'dependencies': {'Heater':2, 'Crafter':2 }},
+	"Caldera Nv 4": {'cost':{'electricity':10,'copper':6, 'tungsten':2}, 'unlocked': false, 'dependencies': {'Heater':3, 'Crafter':3 }},
+	"Crafter Nv 2": {'cost':{'electricity':10,'iron':6, 'silicon':2}, 'unlocked': true},
+	"Crafter Nv 3": {'cost':{'electricity':10,'iron':6, 'tungsten':2}, 'unlocked': false, 'dependencies': {'Crafter':3 }},
+	"Respirador Nv 2": {'cost':{'electricity':10,'carbon':6, 'copper':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	"Respirador Nv 3": {'cost':{'electricity':10,'carbon':6, 'lithium':2}, 'unlocked': false, 'dependencies': {'Respirador':2, 'Crafter':3 }},
+	"Panel solar Nv 1": {'cost':{'electricity':10, 'silicon':2}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	"Panel solar Nv 2": {'cost':{'electricity':10, 'silicon':2, 'copper':2}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
+	"Panel solar Nv 3": {'cost':{'electricity':10, 'silicon':2, 'tungsten':2}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
 }
 
 
