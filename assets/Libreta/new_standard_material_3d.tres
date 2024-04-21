@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://esl78y8oh53e"]
+
+[ext_resource type="Texture2D" uid="uid://c7tngro6xtstb" path="res://assets/Libreta/T_standardSurface1_BC.png" id="1_cu63j"]
+
+[resource]
+albedo_texture = ExtResource("1_cu63j")
