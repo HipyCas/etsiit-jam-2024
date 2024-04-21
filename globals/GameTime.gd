@@ -2,8 +2,7 @@ extends Node
 
 const DIARY_OVERLAY_SCENE = preload("res://DiaryView.tscn")
 
-# 12h game time -> 10min -> 5min real time
-const MULTIPLIER = 72 * 2;
+const MULTIPLIER = 200;
 
 var raw_time = 0
 var days_elapsed = 0

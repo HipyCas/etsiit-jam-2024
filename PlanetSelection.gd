@@ -66,7 +66,9 @@ func show_planet_info(_planet: int):
 	$PlanetInfoPanel/VBoxContainer/CostsContainer/Label.text = costs_text
 	
 	#if not Planet.can_travel_to(planet):
-		#$PlanetInfoPanel/VBoxContainer/Actions/Travel.theme.add_theme_font_override()
+		#$PlanetInfoPanel/VBoxContainer/Actions/Travel.theme.add_theme_font_override()\
+	
+	$PlanetInfoPanel.set_meta("planet_idx", _planet)
 	
 	$PlanetInfoPanel.visible = true
 	$PlanetInfoPanel.grab_focus()

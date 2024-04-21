@@ -1,5 +1,9 @@
 extends Node
 
+
+const END_SCREEN = preload("res://end_game.tscn")
+
+
 const PLANETS = {
 	1: {
 		'name': 'Kanter',
@@ -56,6 +60,11 @@ func goto_planet(planet: int):
 	if can_travel_to(planet):
 		DroneManager.cancel_mission()
 		_current_planet = planet
+		
+		if _current_planet == 4:
+			var scr = END_SCREEN.instantiate()
+			scr.get_node("Content/Title").text = "¡Outer Space alcanzado!"
+			get_tree().root.add_child(scr)
 
 func get_current_planet():
 	return _current_planet
