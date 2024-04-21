@@ -13,7 +13,7 @@ const PLANETS = {
 		'motor_lvl': 1,
 		'cost': {
 			'hydrogen': 50,
-			'electricity': 50,
+			'electricity': 20,
 		}
 	},
 	3: {
@@ -22,7 +22,7 @@ const PLANETS = {
 		'motor_lvl': 2,
 		'cost': {
 			'hydrogen': 100,
-			'electricity': 150,
+			'electricity': 60,
 		}
 	},
 	4: {
@@ -31,7 +31,7 @@ const PLANETS = {
 		'motor_lvl': 3,
 		'cost': {
 			'hydrogen': 170,
-			'electricity': 250,
+			'electricity': 200,
 		}
 	}
 }
