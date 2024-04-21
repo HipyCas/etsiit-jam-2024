@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=26 format=3 uid="uid://bxoxj0vxis68c"]
 
 [ext_resource type="Script" path="res://main_starship.gd" id="1_akq5v"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://gs0ncym3a4i6" path="res://assets/3D/Oxigeno.glb" id="11_wmcs4"]
 [ext_resource type="PackedScene" uid="uid://cr6u01metx555" path="res://assets/Caldera/Caldera.tscn" id="13_8wxmy"]
 [ext_resource type="Script" path="res://SolarPanelProd.gd" id="13_lx42d"]
+[ext_resource type="PackedScene" uid="uid://xxh66qit7akw" path="res://assets/PanatallaMulti/PantallaMulti.tscn" id="14_0n4ff"]
 [ext_resource type="PackedScene" uid="uid://ctc0ln5jj5dma" path="res://assets/DroneControl/DroneControl.tscn" id="16_6dx2t"]
 [ext_resource type="PackedScene" uid="uid://h7t7x6ka6ka3" path="res://assets/Libreta/libreta.tscn" id="17_1t2uw"]
 
@@ -128,11 +129,11 @@ visible = false
 [node name="Oxigeno" parent="." instance=ExtResource("11_wmcs4")]
 transform = Transform3D(0.0271769, 0, -1.35502, 0, 1.35529, 0, 1.35502, 0, 0.0271769, 1.51321, 0.113907, -2.98856)
 
-[node name="Pantalla universal" parent="." instance=ExtResource("4_hcq7k")]
-transform = Transform3D(-7.66536e-09, 0, -0.175363, 0, 0.175363, 0, 0.175363, 0, -7.66536e-09, -2.19654, 2.61937, 2.91346)
+[node name="SolarPanelProd" parent="." instance=ExtResource("14_0n4ff")]
+transform = Transform3D(-7.64949e-09, 0, -0.175, 0, 0.175, 0, 0.175, 0, -7.64949e-09, -2.197, 2.619, 2.913)
 
-[node name="SolarPanelProd" type="Label3D" parent="Pantalla universal"]
-transform = Transform3D(-1.62681e-07, 0, -3.72171, 0, 3.72171, 0, 3.72171, 0, -1.62681e-07, 0, 1.83072, 0)
+[node name="Label" type="Label3D" parent="SolarPanelProd"]
+transform = Transform3D(-1.63018e-07, 0, -3.72943, 0, 3.72943, 0, 3.72943, 0, -1.63018e-07, -0.34668, 1.83663, -0.00262833)
 modulate = Color(0, 1, 0, 1)
 outline_modulate = Color(0.143489, 1, 0.127221, 1)
 text = "546/657"
@@ -184,8 +185,8 @@ text = "Caldera"
 [node name="StaticCrafter" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -0.567, 1.873, 2.89)
 
-[node name="Crafter" parent="StaticCrafter" instance=ExtResource("4_hcq7k")]
-transform = Transform3D(0.222092, 0, 0, 0, 0.222092, 0, 0, 0, 0.159572, 0, 0, 0)
+[node name="FBX" parent="StaticCrafter" instance=ExtResource("14_0n4ff")]
+transform = Transform3D(0.222, 0, 0, 0, 0.222, 0, 0, 0, 0.16, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticCrafter"]
 transform = Transform3D(1, 0, 0, 0, 1, -8.35187e-23, 0, -8.35187e-23, 1, 0.0212708, 0.372482, 0.00384521)
