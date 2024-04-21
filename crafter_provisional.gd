@@ -13,7 +13,7 @@ func _process(delta):
 var crafter_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"Motor Nv 1                        10Z 60Fe": {'cost':{'electricity':-10,'Fe':-60}, 'unlocked': true},
+	"Motor Nv 1                        10Z 60Fe": {'cost':{'electricity':-10,'Fe':-60,'Motor':1}, 'unlocked': true},
 	"Motor Nv 2                  30Z 150Fe 50Si": {'cost':{'electricity':-30,'Fe':-150,'Si':-50,'Motor':1}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
 	"Motor FTL               50Z 250Fe 50W 40Pd": {'cost':{'electricity':-50,'Fe':-250,'W':-50,'Pd':-40,'Motor':1}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
 	"Batería Nv 2                      10Z 50Li": {'cost':{'electricity':-10,'Li':-50,'Battery':1,'Battery_max':200}, 'unlocked': true},
@@ -107,5 +107,6 @@ func craft_item(item_name):
 					Inventory.add_inventory(material, cost[material])
 					#Inventory.add_inventory(material,)
 					crafter_items[item_name].unlocked = true
+					$AudioStreamPlayer.play()
 				else:
 					print("Material", material, "not found in inventory.")

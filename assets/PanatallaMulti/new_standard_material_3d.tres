@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://g5a6jwudjgrx"]
+
+[ext_resource type="Texture2D" uid="uid://g6ob2f8qc2ww" path="res://assets/PanatallaMulti/standardSurface1_baseColor.png" id="1_6vwac"]
+
+[resource]
+albedo_texture = ExtResource("1_6vwac")

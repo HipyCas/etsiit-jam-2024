@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c56tt1dtlenc5"]
+
+[ext_resource type="PackedScene" uid="uid://ccxrv7aklnt0o" path="res://assets/MapaEstelar/estelar.fbx" id="1_du83h"]
+[ext_resource type="Material" uid="uid://rcllmcdxna2y" path="res://assets/MapaEstelar/new_standard_material_3d.tres" id="2_eqvd6"]
+
+[node name="Root Scene" instance=ExtResource("1_du83h")]
+
+[node name="Box001" parent="RootNode/group" index="0"]
+material_override = ExtResource("2_eqvd6")

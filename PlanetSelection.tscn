@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddhhrqd6yw1tb"]
+[gd_scene load_steps=19 format=3 uid="uid://ddhhrqd6yw1tb"]
 
 [ext_resource type="Material" uid="uid://csqt5bfruv25o" path="res://assets/3D/planets/planeta_selva.tres" id="1_fw3lk"]
 [ext_resource type="Material" uid="uid://db4fs375bfxgn" path="res://Bucket/new_standard_material_3d.tres" id="1_mkv7h"]
 [ext_resource type="Script" path="res://PlanetSelection.gd" id="1_y3wvy"]
-[ext_resource type="PackedScene" uid="uid://ca1bo6jftlv8r" path="res://assets/3D/Mapa estelar.glb" id="3_jfuop"]
 [ext_resource type="ArrayMesh" uid="uid://bbkq3ppxyq217" path="res://assets/3D/planets/pelota11.obj" id="3_y3dr6"]
+[ext_resource type="PackedScene" uid="uid://bldw0xo5gveox" path="res://Assets/Modelos 3D/Formato GBL/Mapa estelar.glb" id="5_355y1"]
 [ext_resource type="Script" path="res://PlanetInfoPanel.gd" id="5_iopyc"]
+
+[sub_resource type="Environment" id="Environment_nuy76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huyxf"]
 albedo_color = Color(0.985441, 0.86804, 1.15514e-06, 1)
@@ -55,6 +57,9 @@ radius = 1.67292
 [sub_resource type="SphereShape3D" id="SphereShape3D_403w5"]
 radius = 1.10042
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_chein"]
+size = Vector3(5.71109, 1, 6.04395)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ugeq"]
 bg_color = Color(0.479592, 0.562998, 0.975085, 1)
 corner_radius_top_left = 3
@@ -66,7 +71,8 @@ corner_radius_bottom_left = 3
 script = ExtResource("1_y3wvy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.9077, 58.7804, 9.47902)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 13.3535, 50.9139, 9.44553)
+environment = SubResource("Environment_nuy76")
 projection = 1
 size = 40.0
 
@@ -74,7 +80,7 @@ size = 40.0
 transform = Transform3D(1, 0, 0, 0, 0.96312, -0.269071, 0, 0.269071, 0.96312, 0, 27.1813, 8.87864)
 
 [node name="Sun" type="MeshInstance3D" parent="Planets"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -1.26351, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, -4.76837e-07, 0, 4.76837e-07, 10, -2.60415, 0, 0)
 material_override = SubResource("StandardMaterial3D_huyxf")
 mesh = SubResource("SphereMesh_1o2mq")
 skeleton = NodePath("../..")
@@ -90,7 +96,7 @@ shadow_blur = 7.25
 omni_range = 40.2807
 
 [node name="Planet1" type="StaticBody3D" parent="Planets"]
-transform = Transform3D(1.90552, 0, 0, 0, 1.78325, 0.671592, 0, -0.671592, 1.78325, 8.565, 0, 0)
+transform = Transform3D(1.90552, 0, 0, 0, 1.78325, 0.671592, 0, -0.671592, 1.78325, 7.80124, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="Planets/Planet1"]
 transform = Transform3D(0.0163532, 0, 0, 0, 0.0163532, 0, 0, 0, 0.0163532, -0.233318, -0.035367, 0.401989)
@@ -112,7 +118,7 @@ speed_scale = 0.2
 metadata/autoplay = "spin"
 
 [node name="Planet2" type="StaticBody3D" parent="Planets"]
-transform = Transform3D(1, 0, 0, 0, 0.950228, 0.311556, 0, -0.311556, 0.950228, 14.4168, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.950228, 0.311556, 0, -0.311556, 0.950228, 12.9385, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="Planets/Planet2"]
 transform = Transform3D(-0.751845, 0, -1.29797, 0, 1.5, 0, 1.29797, 0, -0.751845, 0, 0, 0)
@@ -134,7 +140,7 @@ speed_scale = 0.03
 metadata/autoplay = "spin_2"
 
 [node name="PlanetGas" type="StaticBody3D" parent="Planets"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.696, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3075, 0, 0)
 
 [node name="PlanetGas" type="MeshInstance3D" parent="Planets/PlanetGas"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -145,6 +151,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("SphereShape3D_6n48q")
 
 [node name="Planet3" type="StaticBody3D" parent="Planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46144, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="Planets/Planet3"]
 transform = Transform3D(2, 0, 0, 0, 2, 5.96046e-08, 0, -5.96046e-08, 2, 29.7871, 0, 0)
@@ -155,8 +162,22 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 1.78814e-07, 0, -1.78814e-07, 1, 29.7968, 0, 0)
 shape = SubResource("SphereShape3D_403w5")
 
-[node name="Mapa estelar" parent="." instance=ExtResource("3_jfuop")]
-transform = Transform3D(-9.55095e-07, 0, 31.4669, 0, 21.85, 0, -21.85, 0, -1.37546e-06, 13.9071, -11.1945, 8.67859)
+[node name="OuterSpace" type="StaticBody3D" parent="Planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.655, 0, 0)
+
+[node name="Label3D" type="Label3D" parent="Planets/OuterSpace"]
+transform = Transform3D(2.72876, 0, 0, 0, 0.0330048, 2.72856, 0, -2.72856, 0.0330048, -0.947853, 0, 0)
+text = "Outer
+Space
+⇛"
+font_size = 120
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planets/OuterSpace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.704941, -3.8147e-06, -0.0932598)
+shape = SubResource("BoxShape3D_chein")
+
+[node name="Mapa estelar" parent="." instance=ExtResource("5_355y1")]
+transform = Transform3D(-8.24182e-07, 0, 29.7736, 0, 18.8551, 0, -18.8551, 0, -1.30145e-06, 12.7433, -4.02893, 8.33062)
 
 [node name="PlanetInfoPanel" type="Control" parent="."]
 visible = false
@@ -201,6 +222,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Planet 1"
+autowrap_mode = 3
 
 [node name="DesciptionLabel" type="Label" parent="PlanetInfoPanel/VBoxContainer"]
 custom_minimum_size = Vector2(140, 0)
@@ -255,4 +277,5 @@ text = "VIAJAR"
 [connection signal="input_event" from="Planets/Planet2" to="." method="_on_planet_2_input_event"]
 [connection signal="input_event" from="Planets/PlanetGas" to="." method="_on_planet_gas_input_event"]
 [connection signal="input_event" from="Planets/Planet3" to="." method="_on_planet_3_input_event"]
+[connection signal="input_event" from="Planets/OuterSpace" to="." method="_on_outer_space_input_event"]
 [connection signal="pressed" from="PlanetInfoPanel/VBoxContainer/Actions/Dismiss" to="PlanetInfoPanel" method="_on_dismiss_pressed"]
