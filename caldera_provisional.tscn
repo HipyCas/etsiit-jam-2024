@@ -34,7 +34,7 @@ offset_right = 509.0
 offset_bottom = 195.0
 theme_override_colors/font_color = Color(0, 0.843137, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "5/100"
+text = "---/---"
 horizontal_alignment = 1
 
 [node name="element_cantidad_y_coste" type="Label" parent="."]
@@ -44,7 +44,7 @@ offset_right = 536.0
 offset_bottom = 314.0
 theme_override_colors/font_color = Color(0, 0.972549, 0, 1)
 theme_override_font_sizes/font_size = 38
-text = "5/10 => 10
+text = "--/-- => --
 "
 horizontal_alignment = 2
 
