@@ -13,22 +13,22 @@ func _process(delta):
 var crafter_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"Motor Nv 1": {'cost':{'electricity':-10,'Fe':-60}, 'unlocked': true},
-	"Motor Nv 2": {'cost':{'electricity':-30,'Fe':-150,'Si':-50,'Motor':1}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
-	"Motor FTL": {'cost':{'electricity':50,'Fe':250,'W':50,'Pd':40}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
-	"Batería Nv 2": {'cost':{'electricity':10,'Li':50}, 'unlocked': true},
-	"Batería Nv 3": {'cost':{'electricity':30,'Li':70,'Cu':200}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
-	"Batería Nv 4": {'cost':{'electricity':60,'Li':6,'W':20}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
-	"Caldera Nv 2": {'cost':{'electricity':10,'Fe':20}, 'unlocked': true},
-	"Caldera Nv 3": {'cost':{'electricity':40,'Cu':150,'Fe':40}, 'unlocked': false, 'dependencies': {'Heater':2, 'Crafter':2 }},
-	"Caldera Nv 4": {'cost':{'electricity':60,'Cu':300,'Si':100}, 'unlocked': false, 'dependencies': {'Heater':3, 'Crafter':3 }},
-	"Crafter Nv 2": {'cost':{'electricity':20,'Fe':60,'Si':30}, 'unlocked': true},
-	"Crafter Nv 3": {'cost':{'electricity':50,'Fe':70,'W':30}, 'unlocked': false, 'dependencies': {'Crafter':3 }},
-	"Respirador Nv 2": {'cost':{'electricity':35,'C':20,'Cu':150}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
-	"Respirador Nv 3": {'cost':{'electricity':70,'C':40,'Li':80}, 'unlocked': false, 'dependencies': {'Respirador':2, 'Crafter':3 }},
-	"Panel solar Nv 1": {'cost':{'electricity':10,'Si':25}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
-	"Panel solar Nv 2": {'cost':{'electricity':20,'Si':50,'Cu':150}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
-	"Panel solar Nv 3": {'cost':{'electricity':80,'Si':75,'W':40}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
+	"Motor Nv 1                        10Z 60Fe": {'cost':{'electricity':-10,'Fe':-60}, 'unlocked': true},
+	"Motor Nv 2                  30Z 150Fe 50Si": {'cost':{'electricity':-30,'Fe':-150,'Si':-50,'Motor':1}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
+	"Motor FTL               50Z 250Fe 50W 40Pd": {'cost':{'electricity':-50,'Fe':-250,'W':-50,'Pd':-40,'Motor':1}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
+	"Batería Nv 2                      10Z 50Li": {'cost':{'electricity':-10,'Li':-50,'Battery':1,'Battery_max':200}, 'unlocked': true},
+	"Batería Nv 3                30Z 70Li 200Cu": {'cost':{'electricity':-30,'Li':-70,'Cu':-200,'Battery':1,'Battery_max':200}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
+	"Batería Nv 4                 60Z 100Li 20W": {'cost':{'electricity':-60,'Li':-100,'W':-20,'Battery':1,'Battery_max':200}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
+	"Caldera Nv 2                      10Z 20Fe": {'cost':{'electricity':-10,'Fe':-20,'Heater':1}, 'unlocked': true},
+	"Caldera Nv 3                40Z 150Cu 40Fe": {'cost':{'electricity':-40,'Cu':-150,'Fe':-40,'Heater':1}, 'unlocked': false, 'dependencies': {'Heater':2, 'Crafter':2 }},
+	"Caldera Nv 4               60Z 300Cu 100Si": {'cost':{'electricity':-60,'Cu':-300,'Si':-100,'Heater':1}, 'unlocked': false, 'dependencies': {'Heater':3, 'Crafter':3 }},
+	"Crafter Nv 2                 20Z 60Fe 30Si": {'cost':{'electricity':-20,'Fe':-60,'Si':-30,'Crafter':1}, 'unlocked': true},
+	"Crafter Nv 3                  50Z 70Fe 30W": {'cost':{'electricity':-50,'Fe':-70,'W':-30,'Crafter':1}, 'unlocked': false, 'dependencies': {'Crafter':3 }},
+	#"Respirador Nv 2": {'cost':{'electricity':35,'C':20,'Cu':150}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	#"Respirador Nv 3": {'cost':{'electricity':70,'C':40,'Li':80}, 'unlocked': false, 'dependencies': {'Respirador':2, 'Crafter':3 }},
+	"Panel solar Nv 1                  10Z 25Si": {'cost':{'electricity':-10,'Si':-25,'SolarPannel':1,'SolarPannel_production':25}, 'unlocked': false, 'dependencies': {'Crafter':2 }},
+	"Panel solar Nv 2            20Z 50Si 150Cu": {'cost':{'electricity':-20,'Si':-50,'Cu':-150,'SolarPannel':1,'SolarPannel_production':25}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
+	"Panel solar Nv 3              80Z 75Si 40W": {'cost':{'electricity':-80,'Si':-75,'W':-40,'SolarPannel':1,'SolarPannel_production':25}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
 }
 
 func is_crafteable(item):

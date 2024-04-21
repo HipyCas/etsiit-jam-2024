@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvi5luti8ln4h"]
+[gd_scene load_steps=2 format=3 uid="uid://cbymnvyhpnsad"]
 
 [ext_resource type="Script" path="res://crafter_provisional.gd" id="1_lmnpl"]
 
@@ -7,8 +7,10 @@ position = Vector2(344, 192)
 script = ExtResource("1_lmnpl")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -145.0
+offset_top = -95.0
+offset_right = 255.0
+offset_bottom = 302.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
