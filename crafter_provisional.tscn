@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbymnvyhpnsad"]
+[gd_scene load_steps=3 format=3 uid="uid://cbymnvyhpnsad"]
 
 [ext_resource type="Script" path="res://crafter_provisional.gd" id="1_lmnpl"]
+[ext_resource type="AudioStream" uid="uid://c8iv8xmhtmtjn" path="res://assets/audio/crafting.ogg" id="2_tyt53"]
 
 [node name="Crafter" type="Node2D"]
 position = Vector2(344, 192)
@@ -14,3 +15,7 @@ offset_bottom = 302.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tyt53")
+volume_db = 10.0

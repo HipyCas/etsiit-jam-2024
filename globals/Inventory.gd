@@ -3,7 +3,7 @@ extends Node
 const INITIAL_INVENTORY = { 
 	'electricity': 100,
 	'hydrogen': 		0,
-	'iron': 				0,
+	'iron': 				60,
 	'carbon': 			0,
 	'silicon': 			0,
 	'lithium': 			0,
