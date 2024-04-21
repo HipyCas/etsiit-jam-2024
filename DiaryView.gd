@@ -3,11 +3,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/Button.grab_focus()
+	self.grab_focus()
 
 func _dismiss():
 	GameTime.resume_time()
-	get_tree().paused = true
 	queue_free()
 
 func _input(event):
