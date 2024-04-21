@@ -1,0 +1,201 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v3.1.95221606)"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 146,
+            "type": "VEC3",
+            "max": [
+                8.999927520751954,
+                15.111565589904786,
+                7.232320785522461
+            ],
+            "min": [
+                1.4919769763946534,
+                7.21248722076416,
+                -0.46871185302734377
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 146,
+            "type": "VEC3",
+            "max": [
+                0.9519197344779968,
+                1.0,
+                0.9764000177383423
+            ],
+            "min": [
+                -0.9519197344779968,
+                -1.0,
+                -0.9764000177383423
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 146,
+            "type": "VEC4",
+            "max": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 146,
+            "type": "VEC2",
+            "max": [
+                0.9230690002441406,
+                0.9459739923477173
+            ],
+            "min": [
+                0.17352299392223359,
+                0.012058019638061524
+            ]
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 504,
+            "type": "SCALAR",
+            "max": [
+                145.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 8016,
+            "uri": "planeta_selvaJAM.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 1752,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1752,
+            "byteLength": 1752,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 3504,
+            "byteLength": 2336,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 5840,
+            "byteLength": 1168,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 7008,
+            "byteLength": 1008,
+            "target": 34963
+        }
+    ],
+    "materials": [
+        {
+            "name": "initialShadingGroup",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Sphere001",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 4,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TANGENT": 2,
+                        "TEXCOORD_0": 3
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "PELOTA.obj",
+            "matrix": [
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "children": [
+                1,
+                2
+            ]
+        },
+        {
+            "name": "default"
+        },
+        {
+            "name": "Sphere001",
+            "mesh": 0
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0
+}
