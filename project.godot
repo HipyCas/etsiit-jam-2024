@@ -43,6 +43,10 @@ project/assembly_name="TemplateMenus"
 
 enabled=PackedStringArray()
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 ui_accept={
