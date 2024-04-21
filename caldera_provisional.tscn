@@ -4,19 +4,49 @@
 [ext_resource type="Script" path="res://caldera_provisional.gd" id="1_uq7sg"]
 [ext_resource type="Texture2D" uid="uid://b4qb0gvu83neo" path="res://assets/2D/electricity.png" id="3_33g36"]
 
-[node name="Caldera" type="Node2D"]
+[node name="Caldera" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_uq7sg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(440, 307)
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.356863)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(21, 47)
 scale = Vector2(2, 2)
 texture = ExtResource("1_4qqkn")
 
-[node name="HeaterElementButton" type="Button" parent="."]
-offset_left = 308.0
-offset_top = 143.0
-offset_right = 373.0
-offset_bottom = 206.0
+[node name="HeaterElementButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -111.0
+offset_top = -117.0
+offset_right = -46.0
+offset_bottom = -54.0
 theme_override_colors/font_color = Color(0, 0.807843, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.807843, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0.807843, 0, 1)
@@ -27,42 +57,45 @@ theme_override_colors/font_outline_color = Color(0, 0.807843, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Hydrogen"
 
-[node name="electricity_actual_y_maximo" type="Label" parent="."]
-offset_left = 425.0
-offset_top = 150.0
-offset_right = 509.0
-offset_bottom = 195.0
+[node name="electricity_actual_y_maximo" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -110.0
+offset_right = 90.0
+offset_bottom = -65.0
 theme_override_colors/font_color = Color(0, 0.843137, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "---/---"
 horizontal_alignment = 1
 
-[node name="element_cantidad_y_coste" type="Label" parent="."]
-offset_left = 280.0
-offset_top = 250.0
-offset_right = 536.0
-offset_bottom = 314.0
+[node name="element_cantidad_y_coste" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -139.0
+offset_top = -10.0
+offset_right = 117.0
+offset_bottom = 54.0
 theme_override_colors/font_color = Color(0, 0.972549, 0, 1)
 theme_override_font_sizes/font_size = 38
 text = "--/-- => --
 "
 horizontal_alignment = 2
 
-[node name="HeaterFireButton" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 369.0
-offset_right = 576.0
-offset_bottom = 433.0
+[node name="HeaterFireButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 109.0
+offset_right = 157.0
+offset_bottom = 173.0
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(574, 174)
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+position = Vector2(155, -86)
 scale = Vector2(0.165916, 0.192)
 texture = ExtResource("3_33g36")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(562, 277)
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+position = Vector2(143, 17)
 scale = Vector2(0.188063, 0.210667)
 texture = ExtResource("3_33g36")
 
-[connection signal="pressed" from="HeaterElementButton" to="." method="_on_element_button_pressed"]
-[connection signal="pressed" from="HeaterFireButton" to="." method="_on_heater_fire_button_pressed"]
+[connection signal="pressed" from="Control/HeaterElementButton" to="." method="_on_element_button_pressed"]
+[connection signal="pressed" from="Control/HeaterFireButton" to="." method="_on_heater_fire_button_pressed"]

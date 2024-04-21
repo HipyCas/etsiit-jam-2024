@@ -14,6 +14,7 @@ custom_minimum_size = Vector2(800, 140)
 layout_mode = 3
 anchors_preset = 0
 offset_bottom = 140.0
+size_flags_horizontal = 3
 script = ExtResource("1_m47ka")
 metadata/missionidx = 0
 
