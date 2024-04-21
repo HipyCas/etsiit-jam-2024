@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1o216h4a70xg"
-path="res://.godot/imported/Oxigeno.glb-b9cab738011c76ff1f3cf893645b26fd.scn"
+path="res://.godot/imported/Oxigeno.glb-f84d6a51734266a964ccd5419ec8747a.scn"
 
 [deps]
 
-source_file="res://assets/Modelos 3D/Formato GBL/Oxigeno.glb"
-dest_files=["res://.godot/imported/Oxigeno.glb-b9cab738011c76ff1f3cf893645b26fd.scn"]
+source_file="res://Assets/Modelos 3D/Formato GBL/Oxigeno.glb"
+dest_files=["res://.godot/imported/Oxigeno.glb-f84d6a51734266a964ccd5419ec8747a.scn"]
 
 [params]
 

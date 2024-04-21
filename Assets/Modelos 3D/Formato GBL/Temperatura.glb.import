@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://0h7ixa868ng8"
-path="res://.godot/imported/Temperatura.glb-f27d8fb990bd0f8435184bb633113184.scn"
+path="res://.godot/imported/Temperatura.glb-b321c4a5b3e30163ffd6807ec4515b03.scn"
 
 [deps]
 
-source_file="res://assets/Modelos 3D/Formato GBL/Temperatura.glb"
-dest_files=["res://.godot/imported/Temperatura.glb-f27d8fb990bd0f8435184bb633113184.scn"]
+source_file="res://Assets/Modelos 3D/Formato GBL/Temperatura.glb"
+dest_files=["res://.godot/imported/Temperatura.glb-b321c4a5b3e30163ffd6807ec4515b03.scn"]
 
 [params]
 

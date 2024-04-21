@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=25 format=3 uid="uid://bxoxj0vxis68c"]
 
 [ext_resource type="Script" path="res://main_starship.gd" id="1_akq5v"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
 [ext_resource type="Material" uid="uid://bbt7iqyhuikbk" path="res://walls.tres" id="2_us5jr"]
 [ext_resource type="PackedScene" uid="uid://dhpoxg0ojiddn" path="res://assets/3D/Pantalla universal.glb" id="4_hcq7k"]
 [ext_resource type="PackedScene" uid="uid://b14evl4wmqjxx" path="res://assets/Reloj/Reloj.tscn" id="6_su54t"]
-[ext_resource type="PackedScene" uid="uid://bs77nro64ifww" path="res://assets/3D/Baterias.glb" id="7_p7nso"]
 [ext_resource type="PackedScene" uid="uid://c4vq2bpwkq73m" path="res://assets/3D/Agua.glb" id="10_ok3qe"]
 [ext_resource type="PackedScene" uid="uid://c56tt1dtlenc5" path="res://assets/MapaEstelar/MapaEstelar.tscn" id="11_kb2e8"]
 [ext_resource type="PackedScene" uid="uid://gs0ncym3a4i6" path="res://assets/3D/Oxigeno.glb" id="11_wmcs4"]
@@ -121,9 +120,6 @@ material_override = SubResource("StandardMaterial3D_aqfcs")
 mesh = SubResource("BoxMesh_1kubf")
 skeleton = NodePath("../..")
 
-[node name="Baterias" parent="." instance=ExtResource("7_p7nso")]
-transform = Transform3D(-2.81126e-08, 0, -0.643142, 0, 0.643142, 0, 0.643142, 0, -2.81126e-08, 1.04574, -0.225617, 2.28925)
-
 [node name="BateriaTotal" type="Label3D" parent="."]
 transform = Transform3D(-0.643142, 0, 5.62253e-08, 0, 0.643142, 0, -5.62253e-08, 0, -0.643142, -0.0635062, 0.498316, 2.60432)
 text = "Hola"
@@ -223,4 +219,5 @@ text = "Control del Dron"
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="input_event" from="StaticMapa" to="." method="_on_static_mapa_input_event"]
 [connection signal="input_event" from="StaticCaldera" to="." method="_on_static_caldera_input_event"]
+[connection signal="input_event" from="StaticCrafter" to="." method="_on_static_crafter_input_event"]
 [connection signal="input_event" from="StaticDronControl" to="." method="_on_static_dron_control_input_event"]
