@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqw1olufrmm0c"]
 
-[ext_resource type="Texture2D" path="res://art/caldera.png" id="1_4qqkn"]
+[ext_resource type="Texture2D" uid="uid://betg5k83f2nmi" path="res://assets/2D/caldera.png" id="1_4qqkn"]
 [ext_resource type="Script" path="res://caldera_provisional.gd" id="1_uq7sg"]
 
 [node name="Caldera" type="Node2D"]

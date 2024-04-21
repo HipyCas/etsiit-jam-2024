@@ -6,6 +6,7 @@ var elemento_horno_actual = 0
 var elementos_horno = []
 var element_name = ''
 var battery_max_levels ={1:100, 2:200, 3:300, 4:400} #level:electricity
+var heater_element_level_production = {} 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
