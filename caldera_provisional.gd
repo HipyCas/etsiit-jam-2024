@@ -3,9 +3,9 @@ extends Node2D
 var heater_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"hydrogen": {'cost':10,'production':{1:5,2:5,3:5,4:5}},
-	"lithium": {'cost':10, 'production':{1:5,2:5,3:5,4:5}},
-	"carbon": {'cost':10, 'production':{1:5,2:5,3:5,4:5}}
+	"hydrogen": {'cost':10,'production':{1:20,2:30,3:40,4:50}},
+	"lithium": {'cost':10, 'production':{1:10,2:15,3:20,4:25}},
+	"carbon": {'cost':20, 'production':{1:40,2:60,3:80,4:100}}
 }
 
 # Declarar una variable para llevar el seguimiento del estado actual del botón
