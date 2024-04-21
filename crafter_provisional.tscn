@@ -3,8 +3,13 @@
 [ext_resource type="Script" path="res://crafter_provisional.gd" id="1_lmnpl"]
 [ext_resource type="AudioStream" uid="uid://c8iv8xmhtmtjn" path="res://assets/audio/crafting.ogg" id="2_tyt53"]
 
-[node name="Crafter" type="Node2D"]
-position = Vector2(344, 192)
+[node name="Crafter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 344.0
+offset_top = 192.0
+offset_right = 344.0
+offset_bottom = 192.0
 script = ExtResource("1_lmnpl")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]

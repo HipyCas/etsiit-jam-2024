@@ -1,13 +1,15 @@
-extends Node2D
+extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	grab_focus()
 	actualizar_lista()# Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	actualizar_lista()
+	#actualizar_lista()
+	pass
 
 
 var crafter_items = {
@@ -46,7 +48,7 @@ func is_crafteable(item):
 			var cost = item_data.cost
 			# Iterate through each material required for crafting
 			for material in cost.keys():
-				if material in Inventory.inventory and Inventory.inventory[material] >= -cost[material]:
+				if material in Inventory.inventory and Inventory.inventory[material] >= -1*cost[material]:
 					# If any required material is insufficient, set unlocked flag to false
 					crafteable = false
 	print('Objetos Crafteables:', crafteable_list)
@@ -60,9 +62,11 @@ func unlock():
 		var item_data = crafter_items[item_name]
 		# Check if the item is already unlocked or not
 		if not item_data.unlocked:
+			#print (item_name + 'no esta desbloqueado')
 			var dependencies_met = true
 			# Check if the item has dependencies
 			if 'dependencies' in item_data:
+				print ('hay dependencias')
 				var dependencies = item_data.dependencies
 				# Iterate through each dependency of the item
 				for dependency_name in dependencies.keys():
@@ -92,11 +96,12 @@ func actualizar_lista():
 		# Si el elemento está desbloqueado, conecta la señal 'pressed' al método correspondiente
 		if item_data.unlocked:
 			var method_callable = Callable(self, "craft_item")
-			item_button.connect("pressed", method_callable.bind([item_name]))
+			item_button.connect("pressed", method_callable.bind(item_name))
 		lista.add_child(item_button)
 
 # Método para manejar la artesanía de un elemento específico
 func craft_item(item_name):
+	print("Attempting to craft item with name: ", item_name)
 	var item_data = crafter_items[item_name]
 	if is_crafteable(item_data):
 		# Resta los materiales del inventario
@@ -105,8 +110,11 @@ func craft_item(item_name):
 			for material in cost:
 				if material in Inventory.inventory:
 					Inventory.add_inventory(material, cost[material])
-					#Inventory.add_inventory(material,)
-					crafter_items[item_name].unlocked = true
+					crafter_items[item_name].unlocked = false
 					$AudioStreamPlayer.play()
+					actualizar_lista()
+					unlock()
 				else:
 					print("Material", material, "not found in inventory.")
+	else: 
+		print('No se puede craftear '+ item_name )

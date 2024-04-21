@@ -1,11 +1,11 @@
 extends Node
 
 const INITIAL_INVENTORY = { 
-	'electricity': 100,
+	'electricity': 1000,
 	'hydrogen': 		0,
-	'iron': 				60,
+	'iron': 				600,
 	'carbon': 			0,
-	'silicon': 			0,
+	'silicon': 			100,
 	'lithium': 			0,
 	'copper': 			0,
 	'tungsten': 		0,
