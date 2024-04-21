@@ -28,7 +28,13 @@ func cancel_mission():
 	_ongoing_mission = null
 
 func complete_mission():
-	pass
+	if not mission_ongoing(): return
+	
+	var loot = Loot.loot_with_conds(Planet.get_current_planet(), _ongoing_mission.conds)
+	for el in loot.keys():
+		Inventory.add_inventory(el, loot[el])
+	
+	cancel_mission()
 
 func mission_ongoing():
 	return not _ongoing_mission == null
