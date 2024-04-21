@@ -76,14 +76,11 @@ func unlock():
 				unlocked_items.append(item_name)
 	print('Objetos Desbloqueados:', unlocked_items)
 
-	 
-	
+
 func actualizar_lista():
 	var lista = $ScrollContainer/VBoxContainer
-
 	# Borra todos los elementos de la lista antes de actualizar
 	lista.clear()
-
 	for item_name in crafter_items.keys():
 		var item_data = crafter_items[item_name]
 		var item_button = Button.new()
@@ -93,8 +90,8 @@ func actualizar_lista():
 		item_button.disabled = not item_data.unlocked
 		# Si el elemento está desbloqueado, conecta la señal 'pressed' al método correspondiente
 		if item_data.unlocked:
-			item_button.connect("pressed", self, "craft_item", [item_name])
-		# Agrega el botón a la lista
+			var method_callable = Callable(self, "craft_item")
+			item_button.connect("pressed", method_callable.bind([item_name]))
 		lista.add_child(item_button)
 
 # Método para manejar la artesanía de un elemento específico
@@ -102,9 +99,12 @@ func craft_item(item_name):
 	var item_data = crafter_items[item_name]
 	if is_crafteable(item_data):
 		# Resta los materiales del inventario
-		for material, amount in item_data.cost.items():
-			Inventory.add_inventory(material,-amount)
-		# Realiza cualquier otra acción necesaria al craftear el elemento
-		# Por ejemplo, agregar el elemento al inventario del jugador
-		# Llamar a funciones adicionales, etc.
-		# Aquí puedes agregar tu lógica adicional según el juego o la aplicación.
+		if 'cost' in item_data:
+			var cost = item_data.cost
+			for material in cost:
+				if material in Inventory.inventory:
+					Inventory.add_inventory(material, -cost[material])
+				else:
+					print("Material", material, "not found in inventory.")
+
+
