@@ -1,10 +1,21 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=22 format=3 uid="uid://bxoxj0vxis68c"]
 
+[ext_resource type="Script" path="res://main_starship.gd" id="1_akq5v"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
 [ext_resource type="Material" uid="uid://bbt7iqyhuikbk" path="res://walls.tres" id="2_us5jr"]
-[ext_resource type="Script" path="res://StaticBody3D.gd" id="2_xoilg"]
 [ext_resource type="Script" path="res://Timer.gd" id="3_x05pq"]
-[ext_resource type="PackedScene" uid="uid://n1hcin5iwb5h" path="res://Agua.glb" id="4_ug3yg"]
+[ext_resource type="PackedScene" uid="uid://dhpoxg0ojiddn" path="res://assets/3D/Pantalla universal.glb" id="4_hcq7k"]
+[ext_resource type="PackedScene" uid="uid://ddhhrqd6yw1tb" path="res://PlanetSelection.tscn" id="5_d4u64"]
+[ext_resource type="PackedScene" uid="uid://ca1bo6jftlv8r" path="res://assets/3D/Mapa estelar.glb" id="5_qkryx"]
+[ext_resource type="PackedScene" uid="uid://ctnvdt2cfk6b8" path="res://assets/3D/Reloj.glb" id="6_x1no7"]
+[ext_resource type="PackedScene" uid="uid://bs77nro64ifww" path="res://assets/3D/Baterias.glb" id="7_p7nso"]
+[ext_resource type="PackedScene" uid="uid://bgwd7s4opmuq7" path="res://assets/3D/Caldera.glb" id="9_55omc"]
+[ext_resource type="PackedScene" uid="uid://c4vq2bpwkq73m" path="res://assets/3D/Agua.glb" id="10_ok3qe"]
+[ext_resource type="PackedScene" uid="uid://gs0ncym3a4i6" path="res://assets/3D/Oxigeno.glb" id="11_wmcs4"]
+[ext_resource type="PackedScene" uid="uid://mgsbexh88kt4" path="res://assets/3D/Mando de dron.glb" id="12_so5sr"]
+[ext_resource type="Script" path="res://SolarPanelProd.gd" id="13_lx42d"]
+[ext_resource type="PackedScene" uid="uid://df0mwg8bf8goj" path="res://assets/agua2/agua.fbx" id="15_mcjrr"]
+[ext_resource type="PackedScene" uid="uid://d25rbkcinbqdn" path="res://assets/agua2/agua_textured.tscn" id="16_mjux0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww7n5"]
 albedo_color = Color(0.36556, 0.370319, 0.383385, 1)
@@ -21,52 +32,47 @@ ambient_light_source = 1
 ambient_light_color = Color(0.887477, 0.0647467, 0.372617, 1)
 reflected_light_source = 1
 
-[sub_resource type="BoxMesh" id="BoxMesh_snloj"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0r0yk"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kig1v"]
-
 [node name="Main" type="Node3D"]
+script = ExtResource("1_akq5v")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.75, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, 0)
 size = 5.0
 script = ExtResource("1_q0863")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Space" type="Node3D" parent="."]
 
-[node name="Floor" type="MeshInstance3D" parent="Node3D"]
+[node name="Floor" type="MeshInstance3D" parent="Space"]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ww7n5")
 mesh = SubResource("PlaneMesh_7kw8u")
 skeleton = NodePath("../..")
 
-[node name="Ceiling" type="MeshInstance3D" parent="Node3D"]
+[node name="Ceiling" type="MeshInstance3D" parent="Space"]
 transform = Transform3D(6, 0, 0, 0, -1, 9.05975e-07, 0, -1.50996e-07, -6, 0, 4, 0)
 material_override = SubResource("StandardMaterial3D_ww7n5")
 mesh = SubResource("BoxMesh_up5ut")
 skeleton = NodePath("../..")
 
-[node name="WallZNeg" type="MeshInstance3D" parent="Node3D"]
+[node name="WallZNeg" type="MeshInstance3D" parent="Space"]
 transform = Transform3D(-3, -8.74228e-08, 8.74228e-08, 1.31134e-07, 1.91069e-15, 2, -2.62268e-07, 1, 3.82137e-15, 0, 2, -3)
 material_override = ExtResource("2_us5jr")
 mesh = SubResource("PlaneMesh_4810h")
 skeleton = NodePath("../..")
 
-[node name="WallZPos" type="MeshInstance3D" parent="Node3D"]
+[node name="WallZPos" type="MeshInstance3D" parent="Space"]
 transform = Transform3D(3, 0, 0, 0, -4.37114e-08, 2, 0, -1, -8.74228e-08, 0, 2, 3)
 material_override = ExtResource("2_us5jr")
 mesh = SubResource("PlaneMesh_4810h")
 skeleton = NodePath("../..")
 
-[node name="WallXPos" type="MeshInstance3D" parent="Node3D"]
+[node name="WallXPos" type="MeshInstance3D" parent="Space"]
 transform = Transform3D(-1.31134e-07, -1, -8.74228e-08, 0, -4.37114e-08, 2, -3, 4.37114e-08, 3.82137e-15, 3, 2, 0)
 material_override = ExtResource("2_us5jr")
 mesh = SubResource("PlaneMesh_4810h")
 skeleton = NodePath("../..")
 
-[node name="WallXNeg" type="MeshInstance3D" parent="Node3D"]
+[node name="WallXNeg" type="MeshInstance3D" parent="Space"]
 transform = Transform3D(-1.31134e-07, 1, 8.74228e-08, 0, -4.37114e-08, 2, 3, 4.37114e-08, 3.82137e-15, -3, 2, 0)
 material_override = ExtResource("2_us5jr")
 mesh = SubResource("PlaneMesh_4810h")
@@ -81,56 +87,70 @@ omni_range = 13.4971
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jx23b")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-script = ExtResource("2_xoilg")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.614599, 0, 0, 0, 0.592307, 0, 0.587148, -1.93296)
-mesh = SubResource("BoxMesh_snloj")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.614599, 0, 0, 0, 0.592307, 0, 0.587148, -1.93296)
-shape = SubResource("BoxShape3D_0r0yk")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.013989, 0.413057, 0.438514, 0.994958, 0.0509449, -0.0334341, -0.0993054, 0.452239, -0.396755, 2.44555, 0.587148, 0.134942)
-mesh = SubResource("BoxMesh_snloj")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0485388, -0.0556164, 0.589175, 0.998494, -0.0183728, 0.0272484, 0.0255729, 0.611802, 0.0543781, -0.0385015, 0.587148, 2.43239)
-mesh = SubResource("BoxMesh_snloj")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0485388, -0.0556164, 0.589175, 0.998494, -0.0183728, 0.0272484, 0.0255729, 0.611802, 0.0543781, -0.761915, 0.568018, 2.38897)
-mesh = SubResource("BoxMesh_snloj")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0485388, -0.0556164, 0.589175, 0.998494, -0.0183728, 0.0272484, 0.0255729, 0.611802, 0.0543781, 0.724141, 0.596713, 2.47584)
-mesh = SubResource("BoxMesh_snloj")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14519, 0.00443721, -0.67964)
-script = ExtResource("2_xoilg")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(0.72873, 0, 0.684802, 0, 1, 0, -0.684802, 0, 0.72873, 0, 0, 0)
-mesh = SubResource("BoxMesh_snloj")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(0.728969, 0, 0.684547, 0, 1, 0, -0.684547, 0, 0.728969, 0, 0, 0)
-shape = SubResource("BoxShape3D_kig1v")
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 script = ExtResource("3_x05pq")
 
-[node name="Agua" parent="." instance=ExtResource("4_ug3yg")]
-transform = Transform3D(0.00274017, 0, -0.499992, 0, 0.5, 0, 0.499992, 0, 0.00274017, -2.34454, 0.399613, -0.706293)
+[node name="Ventana" parent="." instance=ExtResource("4_hcq7k")]
+transform = Transform3D(-0.462885, 0, -4.04667e-08, 0, 0.462885, 0, 4.04667e-08, 0, -0.462885, -2.83216, 1.40964, -1.13755)
 
-[connection signal="input_event" from="StaticBody3D" to="StaticBody3D" method="_on_input_event"]
-[connection signal="mouse_entered" from="StaticBody3D" to="StaticBody3D" method="_on_mouse_entered"]
-[connection signal="input_event" from="StaticBody3D2" to="StaticBody3D2" method="_on_input_event"]
-[connection signal="mouse_entered" from="StaticBody3D2" to="StaticBody3D2" method="_on_mouse_entered"]
+[node name="PlanetSelection" parent="." instance=ExtResource("5_d4u64")]
+transform = Transform3D(-1.35505e-09, 0, 0.031, 0, 0.031, 0, -0.031, 0, -1.35505e-09, -2.71, 0.545, 1.731)
+visible = false
+
+[node name="Reloj" parent="." instance=ExtResource("6_x1no7")]
+transform = Transform3D(-2.35227, 0, 2.05642e-07, 0, 2.35227, 0, -2.05642e-07, 0, -2.35227, -3.03759, 2.04214, 1.49431)
+
+[node name="Baterias" parent="." instance=ExtResource("7_p7nso")]
+transform = Transform3D(-2.81126e-08, 0, -0.643142, 0, 0.643142, 0, 0.643142, 0, -2.81126e-08, 1.04574, -0.225617, 2.28925)
+
+[node name="Label3D" type="Label3D" parent="Baterias"]
+transform = Transform3D(-4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, 0.489891, 1.12562, 1.72473)
+text = "Hola"
+
+[node name="Label3D2" type="Label3D" parent="Baterias"]
+transform = Transform3D(-4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, 0.489891, 0.87559, 1.72473)
+text = "Caracola"
+
+[node name="Crafter" parent="." instance=ExtResource("4_hcq7k")]
+transform = Transform3D(-9.70795e-09, -0.222092, 6.9751e-09, 0, -9.70795e-09, -0.159572, 0.222092, -9.70795e-09, 3.04891e-16, -0.567226, 1.87258, 2.89036)
+
+[node name="Caldera" parent="." instance=ExtResource("9_55omc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36736, -0.66472, 1.0271)
+
+[node name="Agua" parent="." instance=ExtResource("10_ok3qe")]
+transform = Transform3D(1.57428, 0, 0, 0, -1.57428, 1.37628e-07, 0, -1.37628e-07, -1.57428, 1.39922, 1.58011, -0.769352)
+visible = false
+
+[node name="Oxigeno" parent="." instance=ExtResource("11_wmcs4")]
+transform = Transform3D(0.0271769, 0, -1.35502, 0, 1.35529, 0, 1.35502, 0, 0.0271769, 1.51321, 0.113907, -2.98856)
+
+[node name="Mando de dron" parent="." instance=ExtResource("12_so5sr")]
+transform = Transform3D(-1.47147e-07, 5.87475e-15, 3.36633, -0.735146, 3.28508, -3.21342e-08, -3.28508, -0.735146, -1.43595e-07, -0.636613, 0.201719, -2.14079)
+
+[node name="Pantalla universal" parent="." instance=ExtResource("4_hcq7k")]
+transform = Transform3D(-7.66536e-09, 0, -0.175363, 0, 0.175363, 0, 0.175363, 0, -7.66536e-09, -2.19654, 2.61937, 2.91346)
+
+[node name="SolarPanelProd" type="Label3D" parent="Pantalla universal"]
+transform = Transform3D(-1.62681e-07, 0, -3.72171, 0, 3.72171, 0, 3.72171, 0, -1.62681e-07, 0, 1.83072, 0)
+modulate = Color(0, 1, 0, 1)
+outline_modulate = Color(0.143489, 1, 0.127221, 1)
+text = "546/657"
+font_size = 70
+script = ExtResource("13_lx42d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Mapa estelar" parent="StaticBody3D" instance=ExtResource("5_qkryx")]
+transform = Transform3D(-0.845173, 0, 7.38874e-08, 0, 0.845173, 0, -7.38874e-08, 0, -0.845173, -2.31043, -0.138459, 1.54237)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
+[node name="Agua2" parent="." instance=ExtResource("15_mcjrr")]
+transform = Transform3D(1.62112, 0, 0, 0, -1.62112, 2.44783e-07, 0, -2.44783e-07, -1.62112, 3.06684, 1.57277, -0.992192)
+visible = false
+
+[node name="Root Scene" parent="." instance=ExtResource("16_mjux0")]
+transform = Transform3D(1.621, 0, 0, 0, 1.621, 0, 0, 0, 1.621, 3.21284, 2.07205, 0.0613085)
+
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
