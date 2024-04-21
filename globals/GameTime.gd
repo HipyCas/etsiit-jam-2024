@@ -2,8 +2,8 @@ extends Node
 
 const DIARY_OVERLAY_SCENE = preload("res://DiaryView.tscn")
 
-# 12h game time -> 10min real time
-const MULTIPLIER = 72;
+# 12h game time -> 10min -> 5min real time
+const MULTIPLIER = 72 * 2;
 
 var raw_time = 0
 var days_elapsed = 0
@@ -37,6 +37,6 @@ func _show_diary_overlay():
 	
 	var diary_file = FileAccess.open("res://diaries/" + String.num(get_day(), 0) + ".txt", FileAccess.READ)
 	
-	this_scene.get_node("VBoxContainer/RichTextLabel").append_text(diary_file.get_as_text())
+	this_scene.get_node("Control/VBoxContainer/RichTextLabel").append_text(diary_file.get_as_text())
 	
 	get_tree().root.add_child(this_scene)

@@ -23,3 +23,8 @@ func _on_gui_input(event):
 func _on_button_pressed():
 	print('dismiss')
 	_dismiss()
+
+
+func _on_diary_view_gui_input(event):
+	print('dismiss diary view')
+	_dismiss()
