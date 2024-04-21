@@ -7,15 +7,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	actualizar_lista()
 
 
 var crafter_items = {
 	#Costes de crafteos
 	#Nombre del item, costes
-	"Motor Nv 1": {'cost':{'electricity':10,'Fe':60}, 'unlocked': true},
-	"Motor Nv 2": {'cost':{'electricity':30,'Fe':150,'Si':50}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
-	"Motor FTL": {'cost':{'electricity':50,'Fe':250,'W':50, 'Pd':40}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
+	"Motor Nv 1": {'cost':{'electricity':-10,'Fe':-60}, 'unlocked': true},
+	"Motor Nv 2": {'cost':{'electricity':-30,'Fe':-150,'Si':-50,'Motor':1}, 'unlocked': false, 'dependencies': {'Motor':1, 'Crafter':2 }},
+	"Motor FTL": {'cost':{'electricity':50,'Fe':250,'W':50,'Pd':40}, 'unlocked': false, 'dependencies': {'Motor':2, 'Crafter':3 }},
 	"Batería Nv 2": {'cost':{'electricity':10,'Li':50}, 'unlocked': true},
 	"Batería Nv 3": {'cost':{'electricity':30,'Li':70,'Cu':200}, 'unlocked': false, 'dependencies': {'Battery':2, 'Crafter':2 }},
 	"Batería Nv 4": {'cost':{'electricity':60,'Li':6,'W':20}, 'unlocked': false, 'dependencies': {'Battery':3, 'Crafter':3 }},
@@ -46,7 +46,7 @@ func is_crafteable(item):
 			var cost = item_data.cost
 			# Iterate through each material required for crafting
 			for material in cost.keys():
-				if material in Inventory.inventory and Inventory.inventory[material] > cost[material]:
+				if material in Inventory.inventory and Inventory.inventory[material] >= -cost[material]:
 					# If any required material is insufficient, set unlocked flag to false
 					crafteable = false
 	print('Objetos Crafteables:', crafteable_list)
@@ -80,7 +80,8 @@ func unlock():
 func actualizar_lista():
 	var lista = $ScrollContainer/VBoxContainer
 	# Borra todos los elementos de la lista antes de actualizar
-	lista.clear()
+	for child in lista.get_children():
+		lista.remove_child(child)
 	for item_name in crafter_items.keys():
 		var item_data = crafter_items[item_name]
 		var item_button = Button.new()
@@ -103,6 +104,9 @@ func craft_item(item_name):
 			var cost = item_data.cost
 			for material in cost:
 				if material in Inventory.inventory:
-					Inventory.add_inventory(material, -cost[material])
+					Inventory.add_inventory(material, cost[material])
+					#Inventory.add_inventory(material,)
+					crafter_items[item_name].unlocked = true
+
 				else:
 					print("Material", material, "not found in inventory.")

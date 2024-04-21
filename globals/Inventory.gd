@@ -15,7 +15,8 @@ const INITIAL_INVENTORY = {
 	'Battery': 			1,
 	'SolarPannel': 	0,
 	'Crafter': 			1,
-	'Heater': 			1
+	'Heater': 			1,
+	'Battery_max': 200
 }
 
 var inventory = INITIAL_INVENTORY.duplicate()
