@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d25rbkcinbqdn"]
+
+[ext_resource type="PackedScene" uid="uid://df0mwg8bf8goj" path="res://assets/agua2/agua.fbx" id="1_gonte"]
+[ext_resource type="Material" uid="uid://ds4afjbw6kj5n" path="res://assets/agua2/new_standard_material_3d.tres" id="2_pub8v"]
+
+[node name="Root Scene" instance=ExtResource("1_gonte")]
+
+[node name="Object001" parent="RootNode/group" index="0"]
+material_override = ExtResource("2_pub8v")
+
+[node name="Cylinder001" parent="RootNode/group" index="1"]
+material_override = ExtResource("2_pub8v")
+
+[node name="Cylinder002" parent="RootNode/group" index="2"]
+material_override = ExtResource("2_pub8v")
+
+[node name="Box001" parent="RootNode/group" index="3"]
+material_override = ExtResource("2_pub8v")
+
+[node name="Cylinder003" parent="RootNode/group" index="4"]
+material_override = ExtResource("2_pub8v")
+
+[node name="Rectangle001" parent="RootNode/group" index="5"]
+material_override = ExtResource("2_pub8v")
