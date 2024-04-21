@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_dismiss_pressed():
 	self.visible = false
+
+
+func _on_travel_pressed():
+	Planet.goto_planet(self.get_meta("planet_idx"))

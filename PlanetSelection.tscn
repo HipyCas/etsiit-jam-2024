@@ -194,6 +194,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_iopyc")
+metadata/planet_idx = 0
 
 [node name="ColorRect" type="ColorRect" parent="PlanetInfoPanel"]
 layout_mode = 1
@@ -279,3 +280,4 @@ text = "VIAJAR"
 [connection signal="input_event" from="Planets/Planet3" to="." method="_on_planet_3_input_event"]
 [connection signal="input_event" from="Planets/OuterSpace" to="." method="_on_outer_space_input_event"]
 [connection signal="pressed" from="PlanetInfoPanel/VBoxContainer/Actions/Dismiss" to="PlanetInfoPanel" method="_on_dismiss_pressed"]
+[connection signal="pressed" from="PlanetInfoPanel/VBoxContainer/Actions/Travel" to="PlanetInfoPanel" method="_on_travel_pressed"]

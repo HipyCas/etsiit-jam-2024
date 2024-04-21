@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=26 format=3 uid="uid://bxoxj0vxis68c"]
 
 [ext_resource type="Script" path="res://main_starship.gd" id="1_akq5v"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
 [ext_resource type="Material" uid="uid://bbt7iqyhuikbk" path="res://walls.tres" id="2_us5jr"]
-[ext_resource type="Script" path="res://Timer.gd" id="3_x05pq"]
 [ext_resource type="PackedScene" uid="uid://dhpoxg0ojiddn" path="res://assets/3D/Pantalla universal.glb" id="4_hcq7k"]
 [ext_resource type="PackedScene" uid="uid://b14evl4wmqjxx" path="res://assets/Reloj/Reloj.tscn" id="6_su54t"]
 [ext_resource type="PackedScene" uid="uid://bs77nro64ifww" path="res://assets/3D/Baterias.glb" id="7_p7nso"]
@@ -11,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c56tt1dtlenc5" path="res://assets/MapaEstelar/MapaEstelar.tscn" id="11_kb2e8"]
 [ext_resource type="PackedScene" uid="uid://gs0ncym3a4i6" path="res://assets/3D/Oxigeno.glb" id="11_wmcs4"]
 [ext_resource type="PackedScene" uid="uid://cr6u01metx555" path="res://assets/Caldera/Caldera.tscn" id="13_8wxmy"]
-[ext_resource type="Script" path="res://SolarPanelProd.gd" id="13_lx42d"]
 [ext_resource type="PackedScene" uid="uid://xxh66qit7akw" path="res://assets/PanatallaMulti/PantallaMulti.tscn" id="14_0n4ff"]
 [ext_resource type="PackedScene" uid="uid://ctc0ln5jj5dma" path="res://assets/DroneControl/DroneControl.tscn" id="16_6dx2t"]
 [ext_resource type="PackedScene" uid="uid://h7t7x6ka6ka3" path="res://assets/Libreta/libreta.tscn" id="17_1t2uw"]
@@ -108,7 +106,6 @@ environment = SubResource("Environment_jx23b")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-script = ExtResource("3_x05pq")
 
 [node name="Ventana" parent="." instance=ExtResource("4_hcq7k")]
 transform = Transform3D(-0.462885, 0, -4.04667e-08, 0, 0.462885, 0, 4.04667e-08, 0, -0.462885, -2.83216, 1.40964, -1.13755)
@@ -127,12 +124,12 @@ skeleton = NodePath("../..")
 [node name="Baterias" parent="." instance=ExtResource("7_p7nso")]
 transform = Transform3D(-2.81126e-08, 0, -0.643142, 0, 0.643142, 0, 0.643142, 0, -2.81126e-08, 1.04574, -0.225617, 2.28925)
 
-[node name="Label3D" type="Label3D" parent="Baterias"]
-transform = Transform3D(-4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, 0.489891, 1.12562, 1.72473)
+[node name="BateriaTotal" type="Label3D" parent="."]
+transform = Transform3D(-0.643142, 0, 5.62253e-08, 0, 0.643142, 0, -5.62253e-08, 0, -0.643142, -0.0635062, 0.498316, 2.60432)
 text = "Hola"
 
-[node name="Label3D2" type="Label3D" parent="Baterias"]
-transform = Transform3D(-4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, 0.489891, 0.87559, 1.72473)
+[node name="BateriaConsumo" type="Label3D" parent="."]
+transform = Transform3D(-0.643142, 0, 5.62253e-08, 0, 0.643142, 0, -5.62253e-08, 0, -0.643142, -0.0635062, 0.337512, 2.60432)
 text = "Caracola"
 
 [node name="Agua" parent="." instance=ExtResource("10_ok3qe")]
@@ -151,7 +148,6 @@ modulate = Color(0, 1, 0, 1)
 outline_modulate = Color(0.143489, 1, 0.127221, 1)
 text = "546/657"
 font_size = 70
-script = ExtResource("13_lx42d")
 
 [node name="StaticMapa" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31, -0.138, 1.542)
@@ -224,7 +220,7 @@ shape = SubResource("BoxShape3D_pyn35")
 transform = Transform3D(0.00130205, -0.218139, -0.975916, -0.00582523, 0.975899, -0.218143, 0.999982, 0.00596898, -4.30578e-08, -0.0718454, 1.57852, 0)
 text = "Control del Dron"
 
-[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="input_event" from="StaticMapa" to="." method="_on_static_mapa_input_event"]
 [connection signal="input_event" from="StaticCaldera" to="." method="_on_static_caldera_input_event"]
 [connection signal="input_event" from="StaticDronControl" to="." method="_on_static_dron_control_input_event"]
