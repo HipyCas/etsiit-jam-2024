@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bgwd7s4opmuq7" path="res://assets/3D/Caldera.glb" id="9_55omc"]
 [ext_resource type="PackedScene" uid="uid://c4vq2bpwkq73m" path="res://assets/3D/Agua.glb" id="10_ok3qe"]
 [ext_resource type="PackedScene" uid="uid://gs0ncym3a4i6" path="res://assets/3D/Oxigeno.glb" id="11_wmcs4"]
-[ext_resource type="PackedScene" uid="uid://mgsbexh88kt4" path="res://assets/3D/Mando de dron.glb" id="12_so5sr"]
 [ext_resource type="Script" path="res://SolarPanelProd.gd" id="13_lx42d"]
 [ext_resource type="PackedScene" uid="uid://df0mwg8bf8goj" path="res://assets/agua2/agua.fbx" id="15_mcjrr"]
+[ext_resource type="PackedScene" uid="uid://ctc0ln5jj5dma" path="res://assets/DroneControl/DroneControl.tscn" id="16_6dx2t"]
 [ext_resource type="PackedScene" uid="uid://d25rbkcinbqdn" path="res://assets/agua2/agua_textured.tscn" id="16_mjux0"]
 [ext_resource type="PackedScene" uid="uid://h7t7x6ka6ka3" path="res://assets/Libreta/libreta.tscn" id="17_1t2uw"]
 
@@ -96,7 +96,6 @@ skeleton = NodePath("../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 3, 0)
-light_energy = 0.75
 distance_fade_begin = 2.0
 omni_range = 13.4971
 
@@ -208,11 +207,11 @@ text = "Crafter
 [node name="StaticDronControl" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.26587e-08, -9.53534e-09, 1, -0.218143, 0.975917, 0, -0.975917, -0.218143, -4.37114e-08, -0.637, 0.202, -2.141)
 
-[node name="Mando de dron" parent="StaticDronControl" instance=ExtResource("12_so5sr")]
-transform = Transform3D(3.36633, 0, 0, 0, 3.36633, 0, 0, 0, 3.36633, 0, 0, 0)
+[node name="FBX" parent="StaticDronControl" instance=ExtResource("16_6dx2t")]
+transform = Transform3D(0.501621, -0.119318, -1.73478e-09, 0.119318, 0.501621, 4.95649e-09, 5.40714e-10, -5.2234e-09, 0.515617, 0.169351, -0.0188795, -3.57628e-07)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticDronControl"]
-transform = Transform3D(0.905132, -0.425132, -8.10075e-09, 0.425132, 0.905132, 1.7231e-08, 5.90461e-12, -1.90402e-08, 1, 0.00855279, 1.23952, -0.0133057)
+transform = Transform3D(0.792482, -0.609897, -1.46681e-08, 0.609897, 0.792482, 2.40387e-08, -3.03782e-09, -2.79962e-08, 1, -0.11706, 1.32241, -0.0133057)
 shape = SubResource("BoxShape3D_pyn35")
 
 [node name="Label3D" type="Label3D" parent="StaticDronControl"]
