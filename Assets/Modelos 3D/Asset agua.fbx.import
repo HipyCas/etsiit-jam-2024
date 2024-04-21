@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b5kdqgm27y56s"
-path="res://.godot/imported/Asset agua.fbx-72e55e4f6bc447219e3363003417c960.scn"
+path="res://.godot/imported/Asset agua.fbx-4a46fe9db8c5fb2ed121c0cb48c2c952.scn"
 
 [deps]
 
-source_file="res://assets/Modelos 3D/Asset agua.fbx"
-dest_files=["res://.godot/imported/Asset agua.fbx-72e55e4f6bc447219e3363003417c960.scn"]
+source_file="res://Assets/Modelos 3D/Asset agua.fbx"
+dest_files=["res://.godot/imported/Asset agua.fbx-4a46fe9db8c5fb2ed121c0cb48c2c952.scn"]
 
 [params]
 
