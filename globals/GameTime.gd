@@ -9,17 +9,28 @@ var raw_time = 0
 var days_elapsed = 0
 var running = true
 
+var hooks = []
+
 func _process(delta):
-	raw_time += delta
+	if running:
+		raw_time += delta
 	
 	if get_day() > days_elapsed:
-		get_tree().paused = true
+		# This is probably what caused the problem
+		#get_tree().paused = true
 		#emit_signal('day_gone')
 		days_elapsed += 1
-		running = false
+		
+		for hook in hooks:
+			hook.call()
+		
+		pause_time()
 		
 		_show_diary_overlay()
-	
+
+func add_daily_hook(fn):
+	hooks.push_back(fn)
+
 func get_time():
 	return raw_time * 72
 
@@ -37,6 +48,11 @@ func _show_diary_overlay():
 	
 	var diary_file = FileAccess.open("res://diaries/" + String.num(get_day(), 0) + ".txt", FileAccess.READ)
 	
-	this_scene.get_node("Control/VBoxContainer/RichTextLabel").append_text(diary_file.get_as_text())
+	if diary_file == null:
+		print('No more diaries')
+		resume_time()
+		return
+	
+	this_scene.get_node("VBoxContainer/RichTextLabel").append_text(diary_file.get_as_text())
 	
 	get_tree().root.add_child(this_scene)
