@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://cib228qbln1h"]
+
+[ext_resource type="Script" path="res://DroneMissionItem.gd" id="1_m47ka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31fm1"]
+bg_color = Color(0.456149, 0.622242, 0.751844, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="DroneMissionItem" type="Control"]
+custom_minimum_size = Vector2(800, 140)
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 140.0
+script = ExtResource("1_m47ka")
+metadata/missionidx = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -65.0
+offset_right = 375.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.521569)
+
+[node name="PaddingWrapper" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -65.0
+offset_right = 375.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainLayout" type="VBoxContainer" parent="PaddingWrapper"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="PaddingWrapper/MainLayout"]
+layout_mode = 2
+
+[node name="Coords" type="Label" parent="PaddingWrapper/MainLayout/Header"]
+layout_mode = 2
+text = "[90, 45]"
+
+[node name="StaticArrow" type="Label" parent="PaddingWrapper/MainLayout/Header"]
+layout_mode = 2
+text = " ↝ "
+
+[node name="Duration" type="Label" parent="PaddingWrapper/MainLayout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8h"
+
+[node name="Button" type="Button" parent="PaddingWrapper/MainLayout/Header"]
+layout_mode = 2
+tooltip_text = "Iniciar la misión indicada"
+theme_override_styles/normal = SubResource("StyleBoxFlat_31fm1")
+text = " Iniciar "
+
+[node name="Conditions" type="VBoxContainer" parent="PaddingWrapper/MainLayout"]
+layout_mode = 2
+
+[connection signal="pressed" from="PaddingWrapper/MainLayout/Header/Button" to="." method="_on_button_pressed"]

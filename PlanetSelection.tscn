@@ -1,6 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddhhrqd6yw1tb"]
+[gd_scene load_steps=17 format=3 uid="uid://ddhhrqd6yw1tb"]
 
+[ext_resource type="Material" uid="uid://csqt5bfruv25o" path="res://assets/3D/planets/planeta_selva.tres" id="1_fw3lk"]
 [ext_resource type="Material" uid="uid://db4fs375bfxgn" path="res://Bucket/new_standard_material_3d.tres" id="1_mkv7h"]
+[ext_resource type="Script" path="res://PlanetSelection.gd" id="1_y3wvy"]
+[ext_resource type="PackedScene" uid="uid://ca1bo6jftlv8r" path="res://assets/3D/Mapa estelar.glb" id="3_jfuop"]
+[ext_resource type="ArrayMesh" uid="uid://bbkq3ppxyq217" path="res://assets/3D/planets/pelota11.obj" id="3_y3dr6"]
+[ext_resource type="Script" path="res://PlanetInfoPanel.gd" id="5_iopyc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huyxf"]
 albedo_color = Color(0.985441, 0.86804, 1.15514e-06, 1)
@@ -10,13 +15,8 @@ emission_energy_multiplier = 0.2
 
 [sub_resource type="SphereMesh" id="SphereMesh_1o2mq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1e3sa"]
-albedo_color = Color(0.626782, 0.338941, 0.0554589, 1)
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.0
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_qxs07"]
+radius = 1.49771
 
 [sub_resource type="Animation" id="Animation_am2n5"]
 resource_name = "spin"
@@ -24,7 +24,7 @@ loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Planet1/Mesh")
+tracks/0/path = NodePath("Planets/Planet1/Mesh")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0, 0.707, 0, 0.707, 0.5, 1, 0, 1, 0, 0, 0.75, 1, 0, 0.707, 0, -0.707, 1, 1, 0, 0, 0, -1)
@@ -35,7 +35,7 @@ loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Planet2/Mesh")
+tracks/0/path = NodePath("Planets/Planet2/Mesh")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0, 1, 0, 0, 0.75, 1, 0, 0.707, 0, -0.707)
@@ -49,19 +49,37 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_7xyrh"]
 radius = 0.503448
 
-[sub_resource type="BoxMesh" id="BoxMesh_05ehx"]
-lightmap_size_hint = Vector2i(14, 21)
-subdivide_width = 2
-subdivide_height = 2
+[sub_resource type="SphereShape3D" id="SphereShape3D_6n48q"]
+radius = 1.67292
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_403w5"]
+radius = 1.10042
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ugeq"]
+bg_color = Color(0.479592, 0.562998, 0.975085, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="PlanetSelection" type="Node3D"]
+script = ExtResource("1_y3wvy")
 
-[node name="Sun" type="MeshInstance3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.9077, 58.7804, 9.47902)
+projection = 1
+size = 40.0
+
+[node name="Planets" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.96312, -0.269071, 0, 0.269071, 0.96312, 0, 27.1813, 8.87864)
+
+[node name="Sun" type="MeshInstance3D" parent="Planets"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -1.26351, 0, 0)
 material_override = SubResource("StandardMaterial3D_huyxf")
 mesh = SubResource("SphereMesh_1o2mq")
+skeleton = NodePath("../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Sun"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Planets/Sun"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00471193, 0.0111328, -0.00583496)
 light_energy = 8.0
 shadow_enabled = true
@@ -71,76 +89,170 @@ shadow_opacity = 0.7
 shadow_blur = 7.25
 omni_range = 40.2807
 
-[node name="Planet3" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 20.9323, 0, 0)
-mesh = SubResource("SphereMesh_1o2mq")
+[node name="Planet1" type="StaticBody3D" parent="Planets"]
+transform = Transform3D(1.90552, 0, 0, 0, 1.78325, 0.671592, 0, -0.671592, 1.78325, 8.565, 0, 0)
 
-[node name="Planet4" type="MeshInstance3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 29.725, 0, 0)
-mesh = SubResource("SphereMesh_1o2mq")
+[node name="Mesh" type="MeshInstance3D" parent="Planets/Planet1"]
+transform = Transform3D(0.0163532, 0, 0, 0, 0.0163532, 0, 0, 0, 0.0163532, -0.233318, -0.035367, 0.401989)
+material_override = ExtResource("1_fw3lk")
+mesh = ExtResource("3_y3dr6")
+skeleton = NodePath("../../..")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16.4037, 10, -0.401)
-projection = 1
-size = 19.0
-
-[node name="Planet1" type="AnimatableBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.935832, 0.352446, 0, -0.352446, 0.935832, 8.565, 0, 0)
-
-[node name="Mesh" type="MeshInstance3D" parent="Planet1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_1e3sa")
-material_overlay = ExtResource("1_mkv7h")
-mesh = SubResource("SphereMesh_1o2mq")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planets/Planet1"]
+transform = Transform3D(0.277294, 0, 0, 0, 0.277294, -1.67638e-08, 0, 1.67638e-08, 0.277294, 0, 0, 0)
 shape = SubResource("SphereShape3D_qxs07")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Planet1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Planets/Planet1"]
 reset_on_save = false
-root_node = NodePath("../..")
+root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_loool")
 }
 speed_scale = 0.2
 metadata/autoplay = "spin"
 
-[node name="Planet2" type="StaticBody3D" parent="."]
+[node name="Planet2" type="StaticBody3D" parent="Planets"]
 transform = Transform3D(1, 0, 0, 0, 0.950228, 0.311556, 0, -0.311556, 0.950228, 14.4168, 0, 0)
 
-[node name="Mesh" type="MeshInstance3D" parent="Planet2"]
+[node name="Mesh" type="MeshInstance3D" parent="Planets/Planet2"]
 transform = Transform3D(-0.751845, 0, -1.29797, 0, 1.5, 0, 1.29797, 0, -0.751845, 0, 0, 0)
 material_override = ExtResource("1_mkv7h")
 mesh = SubResource("SphereMesh_1o2mq")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet2"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planets/Planet2"]
+transform = Transform3D(2.42849, 0, 0, 0, 2.42849, 2.98023e-08, 0, -2.98023e-08, 2.42849, 0, 0, 0)
 shape = SubResource("SphereShape3D_7xyrh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Planet2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Planets/Planet2"]
 reset_on_save = false
-root_node = NodePath("../..")
+root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_loool")
 }
 speed_scale = 0.03
 metadata/autoplay = "spin_2"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 26.2035, 1.11675, 8.78008, 0)
-mesh = SubResource("BoxMesh_05ehx")
+[node name="PlanetGas" type="StaticBody3D" parent="Planets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.696, 0, 0)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 26.2035, 31.9701, 8.78008, 0)
-mesh = SubResource("BoxMesh_05ehx")
+[node name="PlanetGas" type="MeshInstance3D" parent="Planets/PlanetGas"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("SphereMesh_1o2mq")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -31.6614, 0, 1, 0, 1, 0, -1.38396e-06, 16.1444, 8.78008, -8.39105)
-mesh = SubResource("BoxMesh_05ehx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planets/PlanetGas"]
+shape = SubResource("SphereShape3D_6n48q")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -31.6614, 0, 1, 0, 1, 0, -1.38396e-06, 16.1444, 8.78008, 7.49951)
-mesh = SubResource("BoxMesh_05ehx")
+[node name="Planet3" type="StaticBody3D" parent="Planets"]
+
+[node name="Mesh" type="MeshInstance3D" parent="Planets/Planet3"]
+transform = Transform3D(2, 0, 0, 0, 2, 5.96046e-08, 0, -5.96046e-08, 2, 29.7871, 0, 0)
+mesh = SubResource("SphereMesh_1o2mq")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planets/Planet3"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.78814e-07, 0, -1.78814e-07, 1, 29.7968, 0, 0)
+shape = SubResource("SphereShape3D_403w5")
+
+[node name="Mapa estelar" parent="." instance=ExtResource("3_jfuop")]
+transform = Transform3D(-9.55095e-07, 0, 31.4669, 0, 21.85, 0, -21.85, 0, -1.37546e-06, 13.9071, -11.1945, 8.67859)
+
+[node name="PlanetInfoPanel" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_iopyc")
+
+[node name="ColorRect" type="ColorRect" parent="PlanetInfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.215686)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlanetInfoPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -190.0
+offset_right = 140.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="PlanetInfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Planet 1"
+
+[node name="DesciptionLabel" type="Label" parent="PlanetInfoPanel/VBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Description of the planet which is a bit longer than the planet name"
+autowrap_mode = 3
+
+[node name="MotorContainer" type="HBoxContainer" parent="PlanetInfoPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlanetInfoPanel/VBoxContainer/MotorContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Nivel de motor: "
+
+[node name="LevelNumberLabel" type="Label" parent="PlanetInfoPanel/VBoxContainer/MotorContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.230751, 0.672606, 0.728352, 1)
+theme_override_font_sizes/font_size = 22
+text = "2"
+
+[node name="Label" type="Label" parent="PlanetInfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Costes:"
+
+[node name="CostsContainer" type="MarginContainer" parent="PlanetInfoPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="PlanetInfoPanel/VBoxContainer/CostsContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 15
+
+[node name="Actions" type="HBoxContainer" parent="PlanetInfoPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Dismiss" type="Button" parent="PlanetInfoPanel/VBoxContainer/Actions"]
+layout_mode = 2
+text = "Cerrar"
+
+[node name="Travel" type="Button" parent="PlanetInfoPanel/VBoxContainer/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_1ugeq")
+text = "VIAJAR"
+
+[connection signal="input_event" from="Planets/Planet1" to="." method="_on_planet_1_input_event"]
+[connection signal="input_event" from="Planets/Planet2" to="." method="_on_planet_2_input_event"]
+[connection signal="input_event" from="Planets/PlanetGas" to="." method="_on_planet_gas_input_event"]
+[connection signal="input_event" from="Planets/Planet3" to="." method="_on_planet_3_input_event"]
+[connection signal="pressed" from="PlanetInfoPanel/VBoxContainer/Actions/Dismiss" to="PlanetInfoPanel" method="_on_dismiss_pressed"]
