@@ -18,10 +18,21 @@ offset_right = 300.0
 offset_bottom = 333.0
 text = "H"
 
-[node name="cantidad_coste" type="Label" parent="."]
-offset_left = 237.0
-offset_top = 367.0
-offset_right = 277.0
-offset_bottom = 390.0
+[node name="electricity_actual_y_maximo" type="Label" parent="."]
+offset_left = 413.0
+offset_top = 284.0
+offset_right = 453.0
+offset_bottom = 307.0
+
+[node name="element_cantidad_y_coste" type="Label" parent="."]
+offset_left = 239.0
+offset_top = 369.0
+offset_right = 279.0
+offset_bottom = 392.0
+
+[node name="HeaterFireButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
 
 [connection signal="pressed" from="HeaterElementButton" to="." method="_on_element_button_pressed"]
+[connection signal="pressed" from="HeaterFireButton" to="." method="_on_heater_fire_button_pressed"]

@@ -72,10 +72,10 @@ func is_crafteable():
 			crafteable_list.append(item_name)
 		if 'cost' in item_data:
 			# Check if the item has crafting costs
-			var costs = item_data.cost
+			var cost = item_data.cost
 			# Iterate through each material required for crafting
-			for material in costs.keys():
-				if material in inventory and inventory[material] > costs[material]:
+			for material in cost.keys():
+				if material in inventory and inventory[material] > cost[material]:
 					# If any required material is insufficient, set unlocked flag to false
 					crafteable = false
 	print('Objetos Crafteables:', crafteable_list)
