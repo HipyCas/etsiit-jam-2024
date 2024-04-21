@@ -10,6 +10,13 @@ func _ready():
 func _process(delta):
 	pass
 
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			get_node("/root/Main").visible = true
+			get_node("/root/Main/Camera3D").current = true
+			queue_free()
+
 
 func _on_planet_1_input_event(camera, event, position, normal, shape_idx):
 	_handle_planet_event(1, event)

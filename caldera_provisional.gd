@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var heater_items = {
 	#Costes de crafteos
@@ -27,10 +27,14 @@ func _ready():
 	var heater_level = Inventory.inventory['Heater']
 	var battery_max_level = battery_max[Inventory.inventory['Battery']]
 	
+	grab_focus()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			queue_free()
+
 
 # Función llamada cuando el botón es presionado
 func _on_element_button_pressed():
@@ -45,10 +49,10 @@ func _on_element_button_pressed():
 	var cost = heater_items[element_name].cost
 	var production = heater_items[element_name].production[heater_level]
 
-	$HeaterElementButton.text = element_name
-	$electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
+	$Control/HeaterElementButton.text = element_name
+	$Control/electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
 	var cantidad_coste = str(element_inventory) + " / " + str(cost) + " => " + str(production)
-	$element_cantidad_y_coste.text = cantidad_coste
+	$Control/element_cantidad_y_coste.text = cantidad_coste
 	
 
 func _on_heater_fire_button_pressed():
@@ -59,10 +63,10 @@ func _on_heater_fire_button_pressed():
 	var element_inventory = Inventory.inventory[element_name]
 	var cost = heater_items[element_name].cost
 	var production = heater_items[element_name].production[heater_level]
-	$HeaterElementButton.text = element_name
-	$electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
+	$Control/HeaterElementButton.text = element_name
+	$Control/electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
 	var cantidad_coste = str(element_inventory) + " / " + str(cost) + " => " + str(production)
-	$element_cantidad_y_coste.text = cantidad_coste
+	$Control/element_cantidad_y_coste.text = cantidad_coste
 	#$electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
 	if  Inventory.inventory[element_name] >= heater_items[element_name].cost:
 		#print(heater_items[element_name])
@@ -71,5 +75,5 @@ func _on_heater_fire_button_pressed():
 		#Inventory.add_inventory(element_name, heater_items[element_name].cost)
 		if  Inventory.inventory['electricity'] > battery_max_value:
 			Inventory.add_inventory('electricity', battery_max_value-Inventory.inventory['electricity'])
-		$electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_value)
+		$Control/electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_value)
 	

@@ -35,7 +35,7 @@ func get_time():
 	return raw_time * 72
 
 func get_day():
-	return floor(get_time() / (12 * 1 * 60))
+	return floor(get_time() / (12 * 60 * 60))
 	
 func pause_time():
 	running = false

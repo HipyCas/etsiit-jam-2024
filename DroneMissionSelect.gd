@@ -9,12 +9,20 @@ func _ready():
 	$ScrollContainer.visible = not DroneManager.mission_ongoing()
 	
 	for idx in range(len(DroneManager.daily_missions)):
-		render_mission($ScrollContainer/VBoxContainer, idx)
+		render_mission($ScrollContainer/MarginContainer/VBoxContainer, idx)
+	
+	grab_focus()
 
 
 func _process(delta):
 	$MissionOngoing.visible = DroneManager.mission_ongoing()
 	$ScrollContainer.visible = not DroneManager.mission_ongoing()
+
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			queue_free()
 
 
 func render_mission(parent: Node, mission_idx: int):

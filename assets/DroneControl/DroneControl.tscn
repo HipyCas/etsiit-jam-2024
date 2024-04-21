@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctc0ln5jj5dma"]
+
+[ext_resource type="PackedScene" uid="uid://bd5p7kc0anrlb" path="res://assets/DroneControl/DroneControl.fbx" id="1_42ixd"]
+[ext_resource type="Material" uid="uid://c28e03hjrsneb" path="res://assets/DroneControl/new_standard_material_3d.tres" id="2_50fkb"]
+
+[node name="Root Scene" instance=ExtResource("1_42ixd")]
+
+[node name="Box001" parent="RootNode/group" index="0"]
+material_override = ExtResource("2_50fkb")

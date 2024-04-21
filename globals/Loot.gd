@@ -304,7 +304,7 @@ func get_conditions_object(planet: int):
 	var selected = {}
 	
 	for cond_key in CONDITIONS.keys():
-		if CONDITIONS[cond_key]['when'] >= planet:
+		if CONDITIONS[cond_key]['when'] <= planet:
 			availables.push_back([cond_key, CONDITIONS[cond_key]])
 	
 	# TODO Weighted selection
