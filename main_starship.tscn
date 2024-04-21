@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=28 format=3 uid="uid://bxoxj0vxis68c"]
 
 [ext_resource type="Script" path="res://main_starship.gd" id="1_akq5v"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
 [ext_resource type="Material" uid="uid://bbt7iqyhuikbk" path="res://walls.tres" id="2_us5jr"]
 [ext_resource type="Script" path="res://Timer.gd" id="3_x05pq"]
 [ext_resource type="PackedScene" uid="uid://dhpoxg0ojiddn" path="res://assets/3D/Pantalla universal.glb" id="4_hcq7k"]
-[ext_resource type="PackedScene" uid="uid://ctnvdt2cfk6b8" path="res://assets/3D/Reloj.glb" id="6_x1no7"]
+[ext_resource type="PackedScene" uid="uid://b14evl4wmqjxx" path="res://assets/Reloj/Reloj.tscn" id="6_su54t"]
 [ext_resource type="PackedScene" uid="uid://bs77nro64ifww" path="res://assets/3D/Baterias.glb" id="7_p7nso"]
 [ext_resource type="PackedScene" uid="uid://c4vq2bpwkq73m" path="res://assets/3D/Agua.glb" id="10_ok3qe"]
 [ext_resource type="PackedScene" uid="uid://c56tt1dtlenc5" path="res://assets/MapaEstelar/MapaEstelar.tscn" id="11_kb2e8"]
@@ -30,6 +30,11 @@ background_mode = 1
 ambient_light_source = 1
 ambient_light_color = Color(0.887477, 0.0647467, 0.372617, 1)
 reflected_light_source = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqfcs"]
+albedo_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1kubf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obf15"]
 size = Vector3(1.57056, 1.57251, 1.6333)
@@ -108,8 +113,16 @@ script = ExtResource("3_x05pq")
 [node name="Ventana" parent="." instance=ExtResource("4_hcq7k")]
 transform = Transform3D(-0.462885, 0, -4.04667e-08, 0, 0.462885, 0, 4.04667e-08, 0, -0.462885, -2.83216, 1.40964, -1.13755)
 
-[node name="Reloj" parent="." instance=ExtResource("6_x1no7")]
-transform = Transform3D(-2.35227, 0, 2.05642e-07, 0, 2.35227, 0, -2.05642e-07, 0, -2.35227, -3.03759, 2.04214, 1.49431)
+[node name="Reloj" parent="." instance=ExtResource("6_su54t")]
+transform = Transform3D(-1.02738e-07, 2.35038, 0, -2.35038, -1.02738e-07, 0, 0, 0, 2.35038, -3.00343, 2.56688, 1.494)
+
+[node name="Node3D" type="Node3D" parent="Reloj"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Reloj/Node3D"]
+transform = Transform3D(0.10254, -5.55112e-15, -2.88658e-15, 3.55271e-15, 0.0672142, 9.92617e-23, 1.24345e-14, -5.28344e-23, 0.0129464, -0.0529686, 0, 0.000127137)
+material_override = SubResource("StandardMaterial3D_aqfcs")
+mesh = SubResource("BoxMesh_1kubf")
+skeleton = NodePath("../..")
 
 [node name="Baterias" parent="." instance=ExtResource("7_p7nso")]
 transform = Transform3D(-2.81126e-08, 0, -0.643142, 0, 0.643142, 0, 0.643142, 0, -2.81126e-08, 1.04574, -0.225617, 2.28925)
