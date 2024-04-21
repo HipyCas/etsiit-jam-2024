@@ -20,12 +20,14 @@ const INITIAL_INVENTORY = {
 
 var inventory = INITIAL_INVENTORY.duplicate()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	
-func add_inventory(material, quantity):
-	inventory[material] += quantity
+var heater_items = {
+	#Costes de crafteos
+	#Nombre del item, costes
+	"H": {'cost':{'H':10},'production':{'electricity':10}},
+	"Li": {'cost':{'Li':10,'Fe':6}, 'production':{'electricity':10}},
+	"C": {'cost':{'C':10,'Fe':2}, 'production':{'electricity':10}}
+}
+
 
 var crafter_items = {
 	#Costes de crafteos
@@ -47,6 +49,16 @@ var crafter_items = {
 	"Panel solar Nv 2": {'cost':{'electricity':10, 'Si':2, 'Cu':2}, 'unlocked': false, 'dependencies': {'SolarPannel':1, 'Crafter':3 }},
 	"Panel solar Nv 3": {'cost':{'electricity':10, 'Si':2, 'W':2}, 'unlocked': false, 'dependencies': {'SolarPannel':2, 'Crafter':3 }}
 }
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+	
+func add_inventory(material, quantity):
+	inventory[material] += quantity
+
 
 func is_crafteable():
 	#Determina si un elemento se puede craftear o no
