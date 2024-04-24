@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bxoxj0vxis68c"]
+[gd_scene load_steps=26 format=3 uid="uid://bxoxj0vxis68c"]
 
 [ext_resource type="Script" path="res://main_starship.gd" id="1_akq5v"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c56tt1dtlenc5" path="res://assets/MapaEstelar/MapaEstelar.tscn" id="11_kb2e8"]
 [ext_resource type="PackedScene" uid="uid://gs0ncym3a4i6" path="res://assets/3D/Oxigeno.glb" id="11_wmcs4"]
 [ext_resource type="PackedScene" uid="uid://cr6u01metx555" path="res://assets/Caldera/Caldera.tscn" id="13_8wxmy"]
+[ext_resource type="PackedScene" uid="uid://bs77nro64ifww" path="res://assets/3D/Baterias.glb" id="13_kb12d"]
 [ext_resource type="PackedScene" uid="uid://xxh66qit7akw" path="res://assets/PanatallaMulti/PantallaMulti.tscn" id="14_0n4ff"]
 [ext_resource type="PackedScene" uid="uid://ctc0ln5jj5dma" path="res://assets/DroneControl/DroneControl.tscn" id="16_6dx2t"]
 [ext_resource type="PackedScene" uid="uid://h7t7x6ka6ka3" path="res://assets/Libreta/libreta.tscn" id="17_1t2uw"]
@@ -121,11 +122,11 @@ mesh = SubResource("BoxMesh_1kubf")
 skeleton = NodePath("../..")
 
 [node name="BateriaTotal" type="Label3D" parent="."]
-transform = Transform3D(-0.643142, 0, 5.62253e-08, 0, 0.643142, 0, -5.62253e-08, 0, -0.643142, -0.0635062, 0.498316, 2.60432)
+transform = Transform3D(-0.643142, 0, 5.62253e-08, 0, 0.643142, 0, -5.62253e-08, 0, -0.643142, -0.639974, 0.498316, 2.60432)
 text = "Hola"
 
 [node name="BateriaConsumo" type="Label3D" parent="."]
-transform = Transform3D(-0.643142, 0, 5.62253e-08, 0, 0.643142, 0, -5.62253e-08, 0, -0.643142, -0.0635062, 0.337512, 2.60432)
+transform = Transform3D(-0.643142, 0, 5.62253e-08, 0, 0.643142, 0, -5.62253e-08, 0, -0.643142, -0.677803, 0.337512, 2.60432)
 text = "Caracola"
 
 [node name="Agua" parent="." instance=ExtResource("10_ok3qe")]
@@ -215,8 +216,23 @@ shape = SubResource("BoxShape3D_pyn35")
 transform = Transform3D(0.00130205, -0.218139, -0.975916, -0.00582523, 0.975899, -0.218143, 0.999982, 0.00596898, -4.30578e-08, -0.0718454, 1.57852, 0)
 text = "Control del Dron"
 
+[node name="StaticBateries" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.26587e-08, -9.53534e-09, 1, -0.218143, 0.975917, 0, -0.975917, -0.218143, -4.37114e-08, -0.637, 0.202, -2.141)
+
+[node name="Baterias" parent="StaticBateries" instance=ExtResource("13_kb12d")]
+transform = Transform3D(-0.980062, -0.198575, -0.00675291, -0.198581, 0.980084, 0.000135096, 0.00659159, 0.0014734, -0.999977, -3.9481, -1.47247, 1.68495)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBateries"]
+transform = Transform3D(0.792482, -0.609897, -1.46681e-08, 0.609897, 0.792482, 2.40387e-08, -3.03782e-09, -2.79962e-08, 1, -0.11706, 1.32241, -0.0133057)
+shape = SubResource("BoxShape3D_pyn35")
+
+[node name="Label3D" type="Label3D" parent="StaticBateries"]
+transform = Transform3D(0.00130205, -0.218139, -0.975916, -0.00582523, 0.975899, -0.218143, 0.999982, 0.00596898, -4.30578e-08, -0.0718454, 1.57852, 0)
+text = "Control del Dron"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="input_event" from="StaticMapa" to="." method="_on_static_mapa_input_event"]
 [connection signal="input_event" from="StaticCaldera" to="." method="_on_static_caldera_input_event"]
 [connection signal="input_event" from="StaticCrafter" to="." method="_on_static_crafter_input_event"]
 [connection signal="input_event" from="StaticDronControl" to="." method="_on_static_dron_control_input_event"]
+[connection signal="input_event" from="StaticBateries" to="." method="_on_static_dron_control_input_event"]
