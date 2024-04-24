@@ -84,7 +84,7 @@ func unlock():
 						dependencies_met = false
 						break  # No need to check further dependencies if one is not met
 			# If all dependencies are met, unlock the item
-			if dependencies_met:
+			if dependencies_met and item_name not in Inventory.crafteados:
 				crafter_items[item_name].unlocked = true
 				unlocked_items.append(item_name)
 	print('Objetos Desbloqueados:', unlocked_items)
@@ -122,6 +122,7 @@ func craft_item(item_name):
 				if material in Inventory.inventory:
 					Inventory.add_inventory(material, cost[material])
 					crafter_items[item_name].unlocked = false
+					Inventory.crafteados.append(item_name)
 					$AudioStreamPlayer.play()
 					actualizar_lista()
 					unlock()

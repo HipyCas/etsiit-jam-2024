@@ -2,14 +2,14 @@ extends Node
 
 const INITIAL_INVENTORY = { 
 	'electricity': 1000,
-	'hydrogen': 	100,
-	'iron': 		100,
-	'carbon': 		100,
-	'silicon': 		100,
-	'lithium': 		100,
-	'copper': 		100,
-	'tungsten': 	100,
-	'paladium': 	100,
+	'hydrogen': 	10,
+	'iron': 		10,
+	'carbon': 		10,
+	'silicon': 		10,
+	'lithium': 		10,
+	'copper': 		10,
+	'tungsten': 	10,
+	'paladium': 	10,
 	'Motor': 		1,
 	'Respirador': 	1,
 	'Battery': 		1,
@@ -21,6 +21,8 @@ const INITIAL_INVENTORY = {
 }
 
 var inventory = INITIAL_INVENTORY.duplicate()
+
+var crafteados=[]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
