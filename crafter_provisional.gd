@@ -45,20 +45,21 @@ func is_crafteable(item):
 	for item_name in crafter_items.keys():
 		var item_data = crafter_items[item_name]
 		if item_data.unlocked:
-			crafteable = true  # Flag to track if all prerequisites are met
-			crafteable_list.append(item_name)
-			continue
-		if 'cost' in item_data:
-			print('ITEM', item_name)
-			# Check if the item has crafting costs
-			var cost = item_data.cost
-			# Iterate through each material required for crafting
-			for material in cost.keys():
-				print('material', material, cost[material], -1 * cost[material], Inventory.inventory[material] >= -1*cost[material])
-				if material in Inventory.inventory and Inventory.inventory[material] >= -1*cost[material]:
-					# If any required material is insufficient, set unlocked flag to false
-					print('>> insuficiente', material)
-					crafteable = false
+			if 'cost' in item_data:
+				print('ITEM', item_name)
+				# Check if the item has crafting costs
+				var cost = item_data.cost
+				# Iterate through each material required for crafting
+				var all_materials = true
+				for material in cost.keys():
+					print('material', material, cost[material], -1 * cost[material], Inventory.inventory[material] < -1*cost[material])
+					if material in Inventory.inventory and Inventory.inventory[material] < -1*cost[material]:
+						# If any required material is insufficient, set unlocked flag to false
+						print('>> insuficiente', material)
+						all_materials = false
+				if all_materials:
+					crafteable_list.append(item_name)
+						
 	print('Objetos Crafteables:', crafteable_list)
 	return item in crafteable_list
 
@@ -102,7 +103,9 @@ func actualizar_lista():
 		# silicon el elemento está desbloqueado, habilita el botón
 		item_button.disabled = not item_data.unlocked
 		# silicon el elemento está desbloqueado, conecta la señal 'pressed' al método correspondiente
+		#item_button.hide()
 		if item_data.unlocked:
+			#item_button.show()
 			var method_callable = Callable(self, "craft_item")
 			item_button.connect("pressed", method_callable.bind(item_name))
 		lista.add_child(item_button)

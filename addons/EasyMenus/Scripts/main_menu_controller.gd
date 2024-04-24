@@ -22,7 +22,6 @@ func close_options():
 	start_game_button.grab_focus()
 	options_menu.hide()
 
-
 func _on_start_game_button_pressed():
 	emit_signal("start_game_pressed")
 	

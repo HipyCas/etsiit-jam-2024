@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cg58sjdc7rcj0"
-path="res://.godot/imported/Agua.glb-e889ecd34a32bde02de887c282318ae1.scn"
+path="res://.godot/imported/Agua.glb-d62710f6ba6f0643d70579f96a97a302.scn"
 
 [deps]
 
-source_file="res://Assets/Modelos 3D/Formato GBL/Agua.glb"
-dest_files=["res://.godot/imported/Agua.glb-e889ecd34a32bde02de887c282318ae1.scn"]
+source_file="res://assets/Modelos 3D/Formato GBL/Agua.glb"
+dest_files=["res://.godot/imported/Agua.glb-d62710f6ba6f0643d70579f96a97a302.scn"]
 
 [params]
 

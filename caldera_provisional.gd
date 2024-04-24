@@ -16,7 +16,8 @@ var element_name = ''
 var battery_max={1:200, 2:400, 3:600, 4:800} #level:electricity
 var heater_element_level_production = {} 
 
-var heater_level = Inventory.inventory['Heater']
+@onready var heater_level = Inventory.inventory['Heater']
+@onready var battery_max_level = battery_max[Inventory.inventory['Battery']]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,11 +25,21 @@ func _ready():
 	for item_name in heater_items.keys():
 		elementos_horno.append(item_name)
 	
-	var heater_level = Inventory.inventory['Heater']
-	var battery_max_level = battery_max[Inventory.inventory['Battery']]
+	_on_element_button_pressed()
 	
 	grab_focus()
-
+	
+func _process(delta):
+	$Control/electricity_actual_y_maximo.text = str(round(Inventory.inventory['electricity'])) + " / " + str(battery_max_level)
+	var element_name = elementos_horno[elemento_horno_actual]
+	var element_inventory = Inventory.inventory[element_name]
+	var cost = heater_items[element_name].cost
+	var production = heater_items[element_name].production[heater_level]
+	var cantidad_coste = str(element_inventory) + " / " + str(cost) + " => " + str(production)
+	$Control/element_cantidad_y_coste.text = cantidad_coste
+	#$Control/HeaterFireButton.hide()
+	#if  Inventory.inventory[element_name] >= heater_items[element_name].cost and not Inventory.inventory['electricity'] > heater_items[element_name].production[heater_level]:
+		#$Control/HeaterFireButton.show()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -50,7 +61,7 @@ func _on_element_button_pressed():
 	var production = heater_items[element_name].production[heater_level]
 
 	$Control/HeaterElementButton.text = element_name
-	$Control/electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
+	$Control/electricity_actual_y_maximo.text = str(round(Inventory.inventory['electricity'])) + " / " + str(battery_max_level)
 	var cantidad_coste = str(element_inventory) + " / " + str(cost) + " => " + str(production)
 	$Control/element_cantidad_y_coste.text = cantidad_coste
 	
@@ -64,16 +75,14 @@ func _on_heater_fire_button_pressed():
 	var cost = heater_items[element_name].cost
 	var production = heater_items[element_name].production[heater_level]
 	$Control/HeaterElementButton.text = element_name
-	$Control/electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
+	$Control/electricity_actual_y_maximo.text = str(round(Inventory.inventory['electricity'])) + " / " + str(battery_max_level)
 	var cantidad_coste = str(element_inventory) + " / " + str(cost) + " => " + str(production)
 	$Control/element_cantidad_y_coste.text = cantidad_coste
 	#$electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_level)
-	if  Inventory.inventory[element_name] >= heater_items[element_name].cost:
+	if  Inventory.inventory[element_name] >= heater_items[element_name].cost and not Inventory.inventory['electricity'] > heater_items[element_name].production[heater_level]:
 		#print(heater_items[element_name])
 		Inventory.add_inventory(element_name, -1*heater_items[element_name].cost)
 		Inventory.add_inventory('electricity', heater_items[element_name].production[heater_level])
 		#Inventory.add_inventory(element_name, heater_items[element_name].cost)
-		if  Inventory.inventory['electricity'] > battery_max_value:
-			Inventory.add_inventory('electricity', battery_max_value-Inventory.inventory['electricity'])
-		$Control/electricity_actual_y_maximo.text = str(Inventory.inventory['electricity']) + " / " + str(battery_max_value)
+		$Control/electricity_actual_y_maximo.text = str(round(Inventory.inventory['electricity'])) + " / " + str(battery_max_value)
 	

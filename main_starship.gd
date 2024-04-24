@@ -53,7 +53,7 @@ func _on_timer_timeout():
 			scr.get_node("Content/Title").text = "¡Te has quedado sin oxígeno!"
 			get_tree().root.add_child(scr)
 		else:
-			$SolarPanelProd/Label.text = "+" + String.num(Inventory.inventory['SolarPannel_production'], 0)
+			#$SolarPanelProd/Label.text = "+" + String.num(Inventory.inventory['SolarPannel_production'], 0)
 			$BateriaTotal.text = String.num(Inventory.inventory['electricity'], 0) + "/" + String.num(Inventory.inventory['Battery_max'])
 			$BateriaConsumo.text = "-" + String.num(40 + (14 * GameTime.days_elapsed), 0)
 

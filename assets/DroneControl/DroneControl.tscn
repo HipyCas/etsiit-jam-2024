@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctc0ln5jj5dma"]
 
-[ext_resource type="PackedScene" uid="uid://bd5p7kc0anrlb" path="res://assets/DroneControl/DroneControl.fbx" id="1_42ixd"]
+[ext_resource type="PackedScene" uid="uid://btkicr0r6yqmt" path="res://DroneControl_out/DroneControl.gltf" id="1_42ixd"]
 [ext_resource type="Material" uid="uid://c28e03hjrsneb" path="res://assets/DroneControl/new_standard_material_3d.tres" id="2_50fkb"]
 
 [node name="Root Scene" instance=ExtResource("1_42ixd")]

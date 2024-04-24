@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xxh66qit7akw"]
 
-[ext_resource type="PackedScene" uid="uid://d2safgu4qew26" path="res://assets/PanatallaMulti/PANTALLA.fbx" id="1_4vl34"]
+[ext_resource type="PackedScene" uid="uid://bclbp4smxnkq2" path="res://PANTALLA_out/PANTALLA.gltf" id="1_4vl34"]
 [ext_resource type="Material" uid="uid://g5a6jwudjgrx" path="res://assets/PanatallaMulti/new_standard_material_3d.tres" id="2_t203x"]
 
 [node name="Root Scene" instance=ExtResource("1_4vl34")]

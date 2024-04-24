@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr6u01metx555"]
 
-[ext_resource type="PackedScene" uid="uid://dq2nfjalplnnp" path="res://assets/Caldera/CALDERA.fbx" id="1_5lqw3"]
+[ext_resource type="PackedScene" uid="uid://c52i8k5da8cr8" path="res://CALDERA_out/CALDERA.gltf" id="1_5lqw3"]
 [ext_resource type="Material" uid="uid://capl822xmp7md" path="res://assets/Caldera/new_standard_material_3d.tres" id="2_isx7s"]
 
 [node name="Root Scene" instance=ExtResource("1_5lqw3")]

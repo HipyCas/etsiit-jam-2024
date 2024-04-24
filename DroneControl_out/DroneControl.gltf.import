@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3fjjkvp6f3xf"
-path="res://.godot/imported/Bateria.gltf-9df1bc2037f343cc2ed0c1afc928c461.scn"
+uid="uid://btkicr0r6yqmt"
+path="res://.godot/imported/DroneControl.gltf-436e9e99059d2c05ce7fc5e0a3b4c7cd.scn"
 
 [deps]
 
-source_file="res://assets/Modelos 3D/baterias/Bateria.gltf"
-dest_files=["res://.godot/imported/Bateria.gltf-9df1bc2037f343cc2ed0c1afc928c461.scn"]
+source_file="res://DroneControl_out/DroneControl.gltf"
+dest_files=["res://.godot/imported/DroneControl.gltf-436e9e99059d2c05ce7fc5e0a3b4c7cd.scn"]
 
 [params]
 

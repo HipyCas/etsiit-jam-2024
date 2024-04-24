@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main_starship.gd" id="1_akq5v"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_q0863"]
-[ext_resource type="Material" uid="uid://bbt7iqyhuikbk" path="res://walls.tres" id="2_us5jr"]
+[ext_resource type="Material" path="res://walls.tres" id="2_us5jr"]
 [ext_resource type="PackedScene" uid="uid://dhpoxg0ojiddn" path="res://assets/3D/Pantalla universal.glb" id="4_hcq7k"]
 [ext_resource type="PackedScene" uid="uid://b14evl4wmqjxx" path="res://assets/Reloj/Reloj.tscn" id="6_su54t"]
 [ext_resource type="PackedScene" uid="uid://c4vq2bpwkq73m" path="res://assets/3D/Agua.glb" id="10_ok3qe"]
@@ -199,8 +199,7 @@ shape = SubResource("BoxShape3D_nexqk")
 
 [node name="Label3D" type="Label3D" parent="StaticCrafter"]
 transform = Transform3D(3.55271e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0.400811, -0.702738)
-text = "Crafter
-"
+text = "Crafter"
 
 [node name="StaticDronControl" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.26587e-08, -9.53534e-09, 1, -0.218143, 0.975917, 0, -0.975917, -0.218143, -4.37114e-08, -0.637, 0.202, -2.141)

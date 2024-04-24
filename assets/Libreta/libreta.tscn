@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://h7t7x6ka6ka3"]
 
-[ext_resource type="PackedScene" uid="uid://dclegjguj0bp1" path="res://assets/Libreta/Libreta.fbx" id="1_vm483"]
+[ext_resource type="PackedScene" uid="uid://bqb8mwdo3eq8g" path="res://Libreta_out/Libreta.gltf" id="1_vm483"]
 [ext_resource type="Material" uid="uid://esl78y8oh53e" path="res://assets/Libreta/new_standard_material_3d.tres" id="2_vygy2"]
 
 [node name="Root Scene" instance=ExtResource("1_vm483")]

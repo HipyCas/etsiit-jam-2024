@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c4by2t6udvcrl"
-path="res://.godot/imported/Caldera.glb-a0f3ffbd45469ae31a616401cc2c3c11.scn"
+path="res://.godot/imported/Caldera.glb-8b3793ad8aa081fa40ccb8fdeb35cd34.scn"
 
 [deps]
 
-source_file="res://Assets/Modelos 3D/Formato GBL/Caldera.glb"
-dest_files=["res://.godot/imported/Caldera.glb-a0f3ffbd45469ae31a616401cc2c3c11.scn"]
+source_file="res://assets/Modelos 3D/Formato GBL/Caldera.glb"
+dest_files=["res://.godot/imported/Caldera.glb-8b3793ad8aa081fa40ccb8fdeb35cd34.scn"]
 
 [params]
 

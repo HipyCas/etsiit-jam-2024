@@ -88,12 +88,12 @@ offset_right = 157.0
 offset_bottom = 173.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control"]
-position = Vector2(155, -86)
+position = Vector2(167, -86)
 scale = Vector2(0.165916, 0.192)
 texture = ExtResource("3_33g36")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Control"]
-position = Vector2(143, 17)
+position = Vector2(163, 17)
 scale = Vector2(0.188063, 0.210667)
 texture = ExtResource("3_33g36")
 
