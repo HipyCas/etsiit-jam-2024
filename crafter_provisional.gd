@@ -52,7 +52,7 @@ func is_crafteable(item):
 				# Iterate through each material required for crafting
 				var all_materials = true
 				for material in cost.keys():
-					print('material', material, cost[material], -1 * cost[material], Inventory.inventory[material] < -1*cost[material])
+					print('material', material, -1 * cost[material], Inventory.inventory[material] > -1*cost[material])
 					if material in Inventory.inventory and Inventory.inventory[material] < -1*cost[material]:
 						# If any required material is insufficient, set unlocked flag to false
 						print('>> insuficiente', material)
@@ -71,20 +71,18 @@ func unlock():
 		var item_data = crafter_items[item_name]
 		# Check if the item is already unlocked or not
 		if not item_data.unlocked:
-			#print (item_name + 'no esta desbloqueado')
 			var dependencies_met = true
 			# Check if the item has dependencies
 			if 'dependencies' in item_data:
-				print ('hay dependencias')
 				var dependencies = item_data.dependencies
 				# Iterate through each dependency of the item
 				for dependency_name in dependencies.keys():
-					# Check if the dependency is unlocked
-					if dependency_name in Inventory.inventory and Inventory.inventory[dependency_name] > dependencies[dependency_name]:
+					# Check if the dependency is met in the crafted items
+					if Inventory.inventory[dependency_name] < item_data.dependencies[dependency_name]:
 						dependencies_met = false
 						break  # No need to check further dependencies if one is not met
 			# If all dependencies are met, unlock the item
-			if dependencies_met and item_name not in Inventory.crafteados:
+			if dependencies_met and not item_name in Inventory.crafteados:
 				crafter_items[item_name].unlocked = true
 				unlocked_items.append(item_name)
 	print('Objetos Desbloqueados:', unlocked_items)
@@ -103,9 +101,9 @@ func actualizar_lista():
 		# silicon el elemento está desbloqueado, habilita el botón
 		item_button.disabled = not item_data.unlocked
 		# silicon el elemento está desbloqueado, conecta la señal 'pressed' al método correspondiente
-		#item_button.hide()
+		item_button.hide()
 		if item_data.unlocked:
-			#item_button.show()
+			item_button.show()
 			var method_callable = Callable(self, "craft_item")
 			item_button.connect("pressed", method_callable.bind(item_name))
 		lista.add_child(item_button)
@@ -124,8 +122,9 @@ func craft_item(item_name):
 					crafter_items[item_name].unlocked = false
 					Inventory.crafteados.append(item_name)
 					$AudioStreamPlayer.play()
-					actualizar_lista()
 					unlock()
+					actualizar_lista()
+					print(Inventory.inventory)
 				else:
 					print("Material", material, "not found in inventory.")
 	else: 
